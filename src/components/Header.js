@@ -12,7 +12,6 @@ function Header() {
       <nav className="absolute top-0 right-0 p-6">
         <div className="flex items-center gap-4">
           <Link to="/" className="text-white hover:text-primary">Home</Link>
-          <Link to="/about" className="text-white hover:text-primary">About</Link>
           <Link to="/projects" className="text-white hover:text-primary">Projects</Link>
           <Link to="/events" className="text-white hover:text-primary">Events</Link>
           <Link to="/wins" className="text-white hover:text-primary">Wins</Link>
