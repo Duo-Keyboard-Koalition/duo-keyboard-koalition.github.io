@@ -106,43 +106,69 @@ function Home() {
             Our community operates in a cyclical rhythm that maximizes growth, innovation, and competitive success.
           </p>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-2 text-white">The Mending Moon</h3>
-              <p className="text-gray-400">
-                A time of respite and renewal. We focus on skill development, learning new technologies, and preparing for future challenges.
-              </p>
-            </CardContent>
-          </Card>
+      <section className="mb-16 bg-gray-900 border border-gray-800 rounded-lg p-8">
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="md:w-1/3 mb-6 md:mb-0 md:pr-8">
+            <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto md:mx-0">
+              <span className="text-4xl text-primary">1</span>
+            </div>
+          </div>
+          <div className="md:w-2/3">
+            <h3 className="text-2xl font-bold mb-4 text-white text-center md:text-left">The Mending Moon</h3>
+            <p className="text-gray-400 text-lg">
+              A time of respite and renewal. During this hallowed season, each member of the Koalition retreats to their sanctums, honing their arcane skills and mending their digital vestments. We focus on skill development, learning new technologies, and preparing for future challenges. Let the clacking of keys be a melody of restoration!
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-2 text-white">The Forging Sun</h3>
-              <p className="text-gray-400">
-                We turn inward to build internal projects, refine our processes, and strengthen our technical foundation as a team.
-              </p>
-            </CardContent>
-          </Card>
+      <section className="mb-16 bg-gray-900 border border-gray-800 rounded-lg p-8">
+        <div className="flex flex-col md:flex-row-reverse items-center">
+          <div className="md:w-1/3 mb-6 md:mb-0 md:pl-8">
+            <div className="w-24 h-24 rounded-full bg-yellow-500/20 flex items-center justify-center mx-auto md:mx-0">
+              <span className="text-4xl text-yellow-500">2</span>
+            </div>
+          </div>
+          <div className="md:w-2/3">
+            <h3 className="text-2xl font-bold mb-4 text-white text-center md:text-right">The Forging Sun</h3>
+            <p className="text-gray-400 text-lg">
+              With the rising of the Forging Sun, we set our sights on internal glory. The great forges of innovation burn bright as we craft and deploy mighty projects within our walls. We turn inward to build internal projects, refine our processes, and strengthen our technical foundation as a team. Every cog in our war machine shall be polished, every spell in our grimoires perfected!
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-2 text-white">The Scouting Winds</h3>
-              <p className="text-gray-400">
-                A period of assessment and recruitment. We evaluate our strengths and weaknesses while welcoming new talent to our ranks.
-              </p>
-            </CardContent>
-          </Card>
+      <section className="mb-16 bg-gray-900 border border-gray-800 rounded-lg p-8">
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="md:w-1/3 mb-6 md:mb-0 md:pr-8">
+            <div className="w-24 h-24 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto md:mx-0">
+              <span className="text-4xl text-blue-500">3</span>
+            </div>
+          </div>
+          <div className="md:w-2/3">
+            <h3 className="text-2xl font-bold mb-4 text-white text-center md:text-left">The Scouting Winds</h3>
+            <p className="text-gray-400 text-lg">
+              As the Scouting Winds blow, we turn our gaze both inward and outward. Our wise elders convene, divining our strengths and discerning our vulnerabilities through ancient SWOT rituals. A period of assessment and recruitment begins as we evaluate our strengths and weaknesses while welcoming new talent to our ranks. Let the Koalition's numbers swell with fresh talent and vigor!
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-2 text-white">The Battle Frost</h3>
-              <p className="text-gray-400">
-                The season of competition. We unite our skills and creativity to tackle hackathons and bring glory to the Koalition.
-              </p>
-            </CardContent>
-          </Card>
+      <section className="mb-16 bg-gray-900 border border-gray-800 rounded-lg p-8">
+        <div className="flex flex-col md:flex-row-reverse items-center">
+          <div className="md:w-1/3 mb-6 md:mb-0 md:pl-8">
+            <div className="w-24 h-24 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto md:mx-0">
+              <span className="text-4xl text-purple-500">4</span>
+            </div>
+          </div>
+          <div className="md:w-2/3">
+            <h3 className="text-2xl font-bold mb-4 text-white text-center md:text-right">The Battle Frost</h3>
+            <p className="text-gray-400 text-lg">
+              When the Battle Frost descends, our kingdom awakens with a terrible fury! The Hackathon Horns sound, and every member of the Duo Keyboard Koalition dons their war-gear. The season of competition begins as we unite our skills and creativity to tackle hackathons and bring glory to the Koalition. With fingers flying and minds ablaze, we storm the digital battlefields, our code-spells weaving victory from the very ether!
+            </p>
+          </div>
         </div>
       </section>
 
