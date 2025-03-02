@@ -54,17 +54,25 @@ function AuthButtons() {
   }, [])
 
   return (
-    <div className="flex flex-col space-y-3 items-center">
-      <h3 className="text-lg font-medium mb-2">Sign in with</h3>
-      <div className="flex space-x-4">
-        <div id="google-signin"></div>
+    <div className="flex flex-col space-y-6 items-center">
+      <div className="flex flex-col space-y-4 items-center w-full">
         <button
           onClick={handleDiscordSignIn}
-          className="flex items-center justify-center bg-[#5865F2] hover:bg-[#4752c4] text-white px-4 py-2 rounded text-sm font-medium transition-colors"
-          style={{ minWidth: '180px', height: '40px' }}
+          className="flex items-center justify-center bg-[#5865F2] hover:bg-[#4752c4] text-white px-4 py-2 rounded w-full max-w-[240px] text-sm font-medium transition-colors"
         >
           Sign in with Discord
         </button>
+        
+        <div className="relative w-full max-w-[240px]">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-700"></div>
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-gray-900 px-2 text-xs text-gray-400">or</span>
+          </div>
+        </div>
+        
+        <div id="google-signin" className="w-full flex justify-center"></div>
       </div>
     </div>
   )
