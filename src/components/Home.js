@@ -56,46 +56,60 @@ function Home() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-6">
-              <Heart className="w-12 h-12 text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">Friendship & Camaraderie</h3>
-              <p className="text-gray-400">
+        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/4 mb-6 md:mb-0 md:pr-8 flex justify-center">
+              <Heart className="w-16 h-16 text-primary" />
+            </div>
+            <div className="md:w-3/4">
+              <h3 className="text-xl font-bold mb-3 text-white">Friendship & Camaraderie</h3>
+              <p className="text-gray-400 text-lg">
                 Build lasting connections with like-minded individuals who share your passion for technology and innovation. Our community thrives on mutual support and encouragement.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
+        </div>
 
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-6">
-              <Zap className="w-12 h-12 text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">Personal Growth</h3>
-              <p className="text-gray-400">
+        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
+          <div className="flex flex-col md:flex-row-reverse items-center">
+            <div className="md:w-1/4 mb-6 md:mb-0 md:pl-8 flex justify-center">
+              <Zap className="w-16 h-16 text-primary" />
+            </div>
+            <div className="md:w-3/4">
+              <h3 className="text-xl font-bold mb-3 text-white text-center md:text-right">Personal Growth</h3>
+              <p className="text-gray-400 text-lg text-center md:text-right">
                 Challenge yourself in a supportive environment. Develop not just technical skills, but also leadership, communication, and problem-solving abilities that will serve you throughout your career.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
+        </div>
 
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-6">
-              <GitBranch className="w-12 h-12 text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">Build with the Team</h3>
-              <p className="text-gray-400">
+        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/4 mb-6 md:mb-0 md:pr-8 flex justify-center">
+              <GitBranch className="w-16 h-16 text-primary" />
+            </div>
+            <div className="md:w-3/4">
+              <h3 className="text-xl font-bold mb-3 text-white">Build with the Team</h3>
+              <p className="text-gray-400 text-lg">
                 Experience the power of collaborative development. Transform hackathon projects into sustainable side projects with real-world impact, guided by our collective expertise.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
+        </div>
 
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-6">
-              <Lightbulb className="w-12 h-12 text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">Win for the Koalition</h3>
-              <p className="text-gray-400">
+        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8">
+          <div className="flex flex-col md:flex-row-reverse items-center">
+            <div className="md:w-1/4 mb-6 md:mb-0 md:pl-8 flex justify-center">
+              <Lightbulb className="w-16 h-16 text-primary" />
+            </div>
+            <div className="md:w-3/4">
+              <h3 className="text-xl font-bold mb-3 text-white text-center md:text-right">Win for the Koalition</h3>
+              <p className="text-gray-400 text-lg text-center md:text-right">
                 Join forces to compete and excel in hackathons. Every victory strengthens our community and creates new opportunities for all members to shine.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </section>
 
