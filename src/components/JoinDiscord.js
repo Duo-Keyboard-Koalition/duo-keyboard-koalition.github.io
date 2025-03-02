@@ -14,34 +14,42 @@ function JoinDiscord() {
   return (
     <Card className="bg-gray-900 border-gray-800">
       <CardContent className="p-6">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4 text-white">Join Our Community</h2>
-          <p className="text-gray-400 mb-6">
-            Ready to join a community of innovators? Whether you're a seasoned developer or just starting out, there's a place for you in the Koalition.
-          </p>
-          <div className="flex flex-col items-center gap-4">
-            <Button asChild>
-              <a
-                href={discordInviteLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#5865F2] hover:bg-[#4752C4] text-white flex items-center gap-2"
-              >
-                <DiscordLogo className="w-5 h-5" />
-                Join Discord
-              </a>
-            </Button>
-            <Button 
-              variant="outline" 
-              className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
-              onClick={handleLearnMore}
-            >
-              Learn More
-            </Button>
+        <div className="flex gap-8">
+          <div className="w-1/3">
+            <QRCodeGenerator />
           </div>
-        </div>
-        <div className="mt-6">
-          <QRCodeGenerator />
+          <div className="w-2/3">
+            <h2 className="text-2xl font-bold mb-4 text-white">Join Our Community</h2>
+            <p className="text-gray-400 mb-6">
+              The Koalition thrives on Discord! Our server is organized into specialized channels for different interests and projects. You'll find:
+            </p>
+            <ul className="text-gray-400 mb-6 list-disc list-inside">
+              <li>Project collaboration spaces</li>
+              <li>Technical discussion channels</li>
+              <li>Resource sharing and learning opportunities</li>
+              <li>Community events and announcements</li>
+            </ul>
+            <div className="flex items-center gap-4">
+              <Button asChild>
+                <a
+                  href={discordInviteLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white flex items-center gap-2"
+                >
+                  <DiscordLogo className="w-5 h-5" />
+                  Join Discord
+                </a>
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+                onClick={handleLearnMore}
+              >
+                Learn More
+              </Button>
+            </div>
+          </div>
         </div>
       </CardContent>
     </Card>
