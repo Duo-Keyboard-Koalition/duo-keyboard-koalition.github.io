@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { supabase } from '../utils/supabase'
 
-function GoogleAuth() {
-
+function AuthButtons() {
   const handleGoogleSignIn = async (response) => {
     try {
       const { data, error } = await supabase.auth.signInWithIdToken({
@@ -16,6 +15,21 @@ function GoogleAuth() {
     }
   }
 
+  const handleDiscordSignIn = async () => {
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'discord',
+        options: {
+          redirectTo: window.location.origin
+        }
+      })
+      if (error) throw error
+      console.log('Redirecting to Discord auth...', data)
+    } catch (error) {
+      console.error('Error signing in with Discord:', error)
+    }
+  }
+
   useEffect(() => {
     const initializeGoogleSignIn = () => {
       if (typeof window.google !== 'undefined') {
@@ -26,7 +40,13 @@ function GoogleAuth() {
         })
         window.google.accounts.id.renderButton(
           document.getElementById('google-signin'),
-          { theme: 'outline', size: 'large' }
+          { 
+            theme: 'filled_blue',
+            size: 'medium',
+            text: 'signin',
+            shape: 'rectangular',
+            width: 180
+          }
         )
       }
     }
@@ -34,10 +54,20 @@ function GoogleAuth() {
   }, [])
 
   return (
-    <div>
-      <div id="google-signin"></div>
+    <div className="flex flex-col space-y-3 items-center">
+      <h3 className="text-lg font-medium mb-2">Sign in with</h3>
+      <div className="flex space-x-4">
+        <div id="google-signin"></div>
+        <button
+          onClick={handleDiscordSignIn}
+          className="flex items-center justify-center bg-[#5865F2] hover:bg-[#4752c4] text-white px-4 py-2 rounded text-sm font-medium transition-colors"
+          style={{ minWidth: '180px', height: '40px' }}
+        >
+          Sign in with Discord
+        </button>
+      </div>
     </div>
   )
 }
 
-export default GoogleAuth
+export default AuthButtons

@@ -8,6 +8,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Events from './components/Events';
 import Wins from './components/Wins';
+import AuthButtons from './components/GoogleAuth';
 
 function App() {
 
@@ -23,6 +24,10 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/wins" element={<Wins />} />
           </Routes>
+          
+          <div className="mt-12 flex justify-center">
+            <AuthButtons />
+          </div>
         </main>
         <Footer />
       </div>
