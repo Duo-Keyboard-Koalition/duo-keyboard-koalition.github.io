@@ -18,7 +18,7 @@ function Header() {
           <Link to="/wins" className="text-white hover:text-primary">Wins</Link>
           <Link 
             to="/signin" 
-            className="ml-4 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors"
+            className="ml-4 text-white hover:text-primary"
           >
             Sign In
           </Link>
