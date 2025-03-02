@@ -49,6 +49,7 @@ function JoinDiscord() {
                 Learn More
               </Button>
             </div>
+            <p className="text-gray-400 mt-4">Or generate your own</p>
           </div>
         </div>
       </CardContent>
