@@ -20,7 +20,7 @@ function GoogleAuth() {
     const initializeGoogleSignIn = () => {
       if (typeof window.google !== 'undefined') {
         window.google.accounts.id.initialize({
-          client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
           callback: handleGoogleSignIn,
           use_fedcm_for_prompt: true
         })
@@ -36,7 +36,6 @@ function GoogleAuth() {
   return (
     <div>
       <div id="google-signin"></div>
-      <script src="https://accounts.google.com/gsi/client" async defer></script>
     </div>
   )
 }
