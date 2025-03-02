@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
-import Script from 'next/script'
-import { createClient } from '@/utils/supabase/client'
+import { supabase } from '../utils/supabase'
 
 function GoogleAuth() {
-  const supabase = createClient()
 
   const handleGoogleSignIn = async (response) => {
     try {
@@ -37,8 +35,8 @@ function GoogleAuth() {
 
   return (
     <div>
-      <Script src="https://accounts.google.com/gsi/client" async defer />
       <div id="google-signin"></div>
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
     </div>
   )
 }
