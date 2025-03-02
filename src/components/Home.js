@@ -1,7 +1,6 @@
 import React from 'react'
 import { Code2, Users, Trophy, Rocket } from 'lucide-react'
 import { Card, CardContent } from "./ui/card"
-import JoinDiscord from './JoinDiscord'
 
 function Home() {
   return (
@@ -46,8 +45,6 @@ function Home() {
           </CardContent>
         </Card>
       </div>
-
-      <JoinDiscord />
     </section>
   )
 }
