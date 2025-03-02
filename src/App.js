@@ -12,9 +12,6 @@ import Events from './components/Events';
 import Wins from './components/Wins';
 
 function App() {
-  const handleDiscordJoin = () => {
-    window.open('https://discord.gg/6GaWZAawUc', '_blank');
-  };
 
   return (
     <Router>
@@ -60,7 +57,7 @@ function App() {
             </CardContent>
           </Card>
         </main>
-        <Footer handleDiscordJoin={handleDiscordJoin} />
+        <Footer />
       </div>
     </Router>
   );

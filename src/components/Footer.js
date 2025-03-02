@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Footer({ handleDiscordJoin }) {
+function Footer() {
   return (
     <footer className="bg-gray-900 py-4">
       <div className="container mx-auto px-4">
@@ -14,12 +14,6 @@ function Footer({ handleDiscordJoin }) {
             <span className="text-gray-400 text-sm">© 2024 Duo Keyboard Koalition</span>
           </div>
           <div className="flex gap-4">
-            <button 
-              className="text-gray-400 hover:text-[#5865F2] text-sm"
-              onClick={handleDiscordJoin}
-            >
-              Discord
-            </button>
             <a href="https://github.com/your-github-org" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary text-sm">GitHub</a>
             <a href="https://twitter.com/your-twitter-handle" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary text-sm">Twitter</a>
           </div>
