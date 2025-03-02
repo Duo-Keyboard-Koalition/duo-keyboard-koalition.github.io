@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import GoogleAuth from './GoogleAuth';
 
 function Header() {
   return (
@@ -16,6 +17,9 @@ function Header() {
           <Link to="/projects" className="text-white hover:text-primary">Projects</Link>
           <Link to="/events" className="text-white hover:text-primary">Events</Link>
           <Link to="/wins" className="text-white hover:text-primary">Wins</Link>
+          <div className="ml-4 border-l pl-4 border-gray-600">
+            <GoogleAuth />
+          </div>
         </div>
       </nav>
     </header>
