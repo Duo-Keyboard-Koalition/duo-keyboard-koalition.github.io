@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { supabase } from '../utils/supabase'
 
 function AuthButtons() {
   const { signInWithGoogle, signInWithDiscord, authError } = useAuth();

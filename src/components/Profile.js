@@ -34,13 +34,10 @@ function Profile() {
     // Fetch linked accounts
     const fetchLinkedAccounts = async () => {
       if (user) {
-        const { data, error } = await supabase.auth.admin.listIdentities({
-          userId: user.id
-        });
-        
-        if (!error && data) {
-          setLinkedAccounts(data);
-        }
+        // Instead of using admin.listIdentities which isn't available in the client,
+        // we'll check the user's identities from the user object
+        const identities = user.identities || [];
+        setLinkedAccounts(identities);
       }
     };
 
@@ -286,7 +283,7 @@ function Profile() {
                   </svg>
                   <span>Google</span>
                 </div>
-                {linkedAccounts.some(acc => acc.provider === 'google') ? (
+                {linkedAccounts.some(acc => acc.provider === 'google') || user?.app_metadata?.provider === 'google' ? (
                   <span className="text-green-500 text-sm">Connected</span>
                 ) : (
                   <button 
@@ -305,7 +302,7 @@ function Profile() {
                   </svg>
                   <span>Discord</span>
                 </div>
-                {linkedAccounts.some(acc => acc.provider === 'discord') ? (
+                {linkedAccounts.some(acc => acc.provider === 'discord') || user?.app_metadata?.provider === 'discord' ? (
                   <span className="text-green-500 text-sm">Connected</span>
                 ) : (
                   <button 
