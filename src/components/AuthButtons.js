@@ -25,7 +25,7 @@ function AuthButtons() {
       if (typeof window.google !== 'undefined') {
         try {
           window.google.accounts.id.initialize({
-            client_id: '1051197030979-rvgq9aq0c3m2jvnpvg8d9bh3j5m6ks6c.apps.googleusercontent.com', // Replace with your actual Google Client ID
+            client_id: '591152851918-g28rel9gd9o0hml1r9mf8q0cfahr7lge.apps.googleusercontent.com', // Google Client ID
             callback: handleGoogleSignIn,
             use_fedcm_for_prompt: true
           });
