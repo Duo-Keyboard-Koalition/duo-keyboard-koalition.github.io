@@ -22,7 +22,7 @@ function Header() {
               <span className="text-gray-400 text-sm">{user.email}</span>
               <button 
                 onClick={signOut}
-                className="ml-4 bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-md transition-colors"
+                className="ml-4 text-white hover:text-primary"
               >
                 Sign Out
               </button>
@@ -30,7 +30,7 @@ function Header() {
           ) : (
             <Link 
               to="/signin" 
-              className="ml-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition-colors"
+              className="ml-4 text-white hover:text-primary"
             >
               Sign In
             </Link>
