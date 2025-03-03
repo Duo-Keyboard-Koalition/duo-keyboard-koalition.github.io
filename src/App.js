@@ -9,25 +9,27 @@ import Projects from './components/Projects';
 import Events from './components/Events';
 import Wins from './components/Wins';
 import SignIn from './components/SignIn';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
-
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col bg-black text-white">
-        <Header />
-        <main className="flex-grow container mx-auto px-4 py-12">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/wins" element={<Wins />} />
-            <Route path="/signin" element={<SignIn />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="min-h-screen flex flex-col bg-black text-white">
+          <Header />
+          <main className="flex-grow container mx-auto px-4 py-12">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/wins" element={<Wins />} />
+              <Route path="/signin" element={<SignIn />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

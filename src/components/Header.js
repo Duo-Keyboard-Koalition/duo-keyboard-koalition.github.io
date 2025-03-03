@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 function Header() {
+  const { user, signOut } = useAuth();
   return (
     <header className="relative w-full">
       <img
@@ -15,12 +17,24 @@ function Header() {
           <Link to="/projects" className="text-white hover:text-primary">Projects</Link>
           <Link to="/events" className="text-white hover:text-primary">Events</Link>
           <Link to="/wins" className="text-white hover:text-primary">Wins</Link>
-          <Link 
-            to="/signin" 
-            className="ml-4 text-white hover:text-primary"
-          >
-            Sign In
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-2">
+              <span className="text-gray-400 text-sm">{user.email}</span>
+              <button 
+                onClick={signOut}
+                className="ml-4 bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-md transition-colors"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <Link 
+              to="/signin" 
+              className="ml-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition-colors"
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       </nav>
     </header>
