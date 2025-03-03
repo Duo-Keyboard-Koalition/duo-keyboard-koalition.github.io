@@ -1,6 +1,7 @@
 import React from 'react'
 import { Code2, Users, Trophy, Rocket, Heart, Zap, Lightbulb, GitBranch } from 'lucide-react'
 import { Card, CardContent } from "./ui/card"
+import QRCode from './QRCode'
 
 function Home() {
   return (
@@ -151,6 +152,14 @@ function Home() {
             The Duo Keyboard Koalition strives to nurture and develop AI-augmented omnicoders – versatile technologists who leverage artificial intelligence to solve complex problems across multiple domains. By combining human creativity with AI capabilities, we aim to push the boundaries of what's possible in software development and technological innovation.
           </p>
         </div>
+      </section>
+
+      <section className="mb-16">
+        <QRCode 
+          value="https://duo-keyboard-koalition.github.io/" 
+          title="Visit Our Website" 
+          description="Scan this code to visit our official website"
+        />
       </section>
     </div>
 
