@@ -143,7 +143,7 @@ function Home() {
             </CardContent>
           </Card>
         </div>
-
+        </section>
       <section className="mb-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Our Ultimate Goal</h2>
@@ -153,6 +153,7 @@ function Home() {
         </div>
       </section>
     </div>
+
   )
 }
 
