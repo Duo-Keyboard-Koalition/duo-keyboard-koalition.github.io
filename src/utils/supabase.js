@@ -1,15 +1,11 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL
-const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Supabase credentials are missing. Please check your environment variables.')
-}
+const supabaseUrl = 'https://slqccoshyaaanseafwdv.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNscWNjb3NoeWFhYW5zZWFmd2R2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxNDc4NTgsImV4cCI6MjA1MTcyMzg1OH0.YWjn2O6KivPMJGM5aSOOjaemWZ-ZI1mHaI4YYKZoJZg'
 
 export const supabase = createClient(
-  supabaseUrl || 'https://your-project-url.supabase.co',
-  supabaseAnonKey || 'your-anon-key',
+  supabaseUrl,
+  supabaseAnonKey,
   {
     auth: {
       autoRefreshToken: true,
