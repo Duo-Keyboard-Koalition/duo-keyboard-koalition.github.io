@@ -15,6 +15,16 @@ function QRCode({ value = "https://discord.gg/6GaWZAawUc", title = "Scan Our QR 
       <p className="mt-4 text-gray-400">
         {description}
       </p>
+      <div className="mt-6">
+        <a 
+          href="https://discord.gg/6GaWZAawUc" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-200"
+        >
+          Join Our Discord
+        </a>
+      </div>
     </section>
   );
 }
