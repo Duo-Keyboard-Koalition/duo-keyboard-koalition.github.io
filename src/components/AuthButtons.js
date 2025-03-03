@@ -48,12 +48,15 @@ function AuthButtons() {
       }
     };
     
+    // Define interval reference outside the conditional blocks
+    let checkGoogleInterval;
+    
     // Check if the script is already loaded
     if (document.querySelector('script[src="https://accounts.google.com/gsi/client"]')) {
       initializeGoogleSignIn();
     } else {
       // If not loaded, wait for it
-      const checkGoogleInterval = setInterval(() => {
+      checkGoogleInterval = setInterval(() => {
         if (typeof window.google !== 'undefined') {
           initializeGoogleSignIn();
           clearInterval(checkGoogleInterval);
@@ -66,7 +69,7 @@ function AuthButtons() {
     
     return () => {
       // Clean up any intervals
-      if (typeof checkGoogleInterval !== 'undefined') {
+      if (checkGoogleInterval) {
         clearInterval(checkGoogleInterval);
       }
     };
