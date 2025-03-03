@@ -2,13 +2,18 @@ import React from 'react'
 import { Code2, Users, Trophy, Rocket, Heart, Zap, Lightbulb, GitBranch } from 'lucide-react'
 import { Card, CardContent } from "./ui/card"
 import QRCode from './QRCode'
+import { useAuth } from '../context/AuthContext'
 
 function Home() {
+  const { user, userProfile } = useAuth();
+  const username = userProfile?.username || user?.user_metadata?.name || user?.email?.split('@')[0] || 'Koalition Member';
   return (
     <div>
       <section className="mb-16">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6">Welcome to the Koalition</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            {user ? `Welcome back, ${username}!` : 'Welcome to the Koalition'}
+          </h2>
           <p className="text-gray-400 text-lg">
             The Duo Keyboard Koalition is a community of passionate hackers, coders, and tech enthusiasts who come together to collaborate, learn, and take on hackathons with a competitive spirit.
           </p>
