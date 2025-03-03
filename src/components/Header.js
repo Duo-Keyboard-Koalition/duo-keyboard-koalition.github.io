@@ -18,11 +18,16 @@ function Header() {
           <Link to="/events" className="text-white hover:text-primary">Events</Link>
           <Link to="/wins" className="text-white hover:text-primary">Wins</Link>
           {user ? (
-            <div className="flex items-center gap-2">
-              <span className="text-gray-400 text-sm">{user.email}</span>
+            <div className="flex items-center gap-4">
+              <Link 
+                to="/profile" 
+                className="text-white hover:text-primary"
+              >
+                Profile
+              </Link>
               <button 
                 onClick={signOut}
-                className="ml-4 text-white hover:text-primary"
+                className="text-white hover:text-primary"
               >
                 Sign Out
               </button>

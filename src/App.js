@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Events from './components/Events';
 import Wins from './components/Wins';
 import SignIn from './components/SignIn';
+import Profile from './components/Profile';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Route path="/events" element={<Events />} />
               <Route path="/wins" element={<Wins />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
           <Footer />

@@ -1,21 +1,17 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthButtons from './AuthButtons';
-import { supabase } from '../utils/supabase';
+import { useAuth } from '../context/AuthContext';
 
 function SignIn() {
   const navigate = useNavigate();
+  const { user, loading } = useAuth();
 
   useEffect(() => {
     // Check if user is already signed in
-    const checkUser = async () => {
-      const { data } = await supabase.auth.getSession();
-      if (data.session) {
-        navigate('/');
-      }
-    };
-    
-    checkUser();
+    if (user && !loading) {
+      navigate('/');
+    }
     
     // Add script for Google Sign-In
     const script = document.createElement('script');
@@ -24,9 +20,19 @@ function SignIn() {
     document.body.appendChild(script);
     
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
-  }, [navigate]);
+  }, [navigate, user, loading]);
+
+  if (loading) {
+    return (
+      <div className="max-w-md mx-auto bg-gray-900 border border-gray-800 rounded-lg p-8 shadow-lg flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-md mx-auto bg-gray-900 border border-gray-800 rounded-lg p-8 shadow-lg">
