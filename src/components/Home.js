@@ -59,60 +59,38 @@ function Home() {
           </p>
         </div>
 
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/4 mb-6 md:mb-0 md:pr-8 flex justify-center">
-              <Heart className="w-16 h-16 text-primary" />
-            </div>
-            <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-white">AI-augmented Omnicoders</h3>
-              <p className="text-gray-400 text-lg">
-                The Duo Keyboard Koalition aims to produce AI-augmented Omnicoders, a new breed of developers who seamlessly integrate artificial intelligence into their coding practices. These Omnicoders leverage advanced AI tools to enhance their productivity, problem-solving capabilities, and code quality.
-              </p>
-            </div>
-          </div>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
+          <Card className="bg-gray-900 border-gray-800">
+            <CardContent className="p-6">
+              <Heart className="w-12 h-12 text-primary mb-4" />
+              <h3 className="text-xl font-bold mb-2 text-white">AI-augmented Omnicoders</h3>
+              <p className="text-gray-400">The Duo Keyboard Koalition aims to produce AI-augmented Omnicoders, a new breed of developers who seamlessly integrate artificial intelligence into their coding practices.</p>
+            </CardContent>
+          </Card>
 
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
-          <div className="flex flex-col md:flex-row-reverse items-center">
-            <div className="md:w-1/4 mb-6 md:mb-0 md:pl-8 flex justify-center">
-              <Zap className="w-16 h-16 text-primary" />
-            </div>
-            <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-white text-center md:text-right">Sustainable Projects</h3>
-              <p className="text-gray-400 text-lg text-center md:text-right">
-                We preserve hackathon projects and turn them into long-term sustainable initiatives. Instead of letting great ideas fade after competitions, we nurture them into mature products with real-world impact, leveraging our collective expertise and resources.
-              </p>
-            </div>
-          </div>
-        </div>
+          <Card className="bg-gray-900 border-gray-800">
+            <CardContent className="p-6">
+              <Zap className="w-12 h-12 text-primary mb-4" />
+              <h3 className="text-xl font-bold mb-2 text-white">Sustainable Projects</h3>
+              <p className="text-gray-400">We preserve hackathon projects and turn them into long-term sustainable initiatives with real-world impact.</p>
+            </CardContent>
+          </Card>
 
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/4 mb-6 md:mb-0 md:pr-8 flex justify-center">
-              <GitBranch className="w-16 h-16 text-primary" />
-            </div>
-            <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-white">Canada's Largest Hackathon Faction</h3>
-              <p className="text-gray-400 text-lg">
-                We're building Canada's largest hackathon faction, bringing together talented individuals under one banner to dominate competitions. Our collective strength, diverse skills, and collaborative approach give us an edge that individual teams cannot match.
-              </p>
-            </div>
-          </div>
-        </div>
+          <Card className="bg-gray-900 border-gray-800">
+            <CardContent className="p-6">
+              <GitBranch className="w-12 h-12 text-primary mb-4" />
+              <h3 className="text-xl font-bold mb-2 text-white">Largest Hackathon Faction</h3>
+              <p className="text-gray-400">We're building Canada's largest hackathon faction, bringing together talented individuals under one banner.</p>
+            </CardContent>
+          </Card>
 
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8">
-          <div className="flex flex-col md:flex-row-reverse items-center">
-            <div className="md:w-1/4 mb-6 md:mb-0 md:pl-8 flex justify-center">
-              <Lightbulb className="w-16 h-16 text-primary" />
-            </div>
-            <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-white text-center md:text-right">Seeking Impact</h3>
-              <p className="text-gray-400 text-lg text-center md:text-right">
-                As AI begins to take more roles in programming, it is the programmer's responsibility to know where they can make an impact with their skills. The Koalition believes software development is a very people-oriented career, as software and information technology form the backbone of our information network. We focus on creating technology that serves humanity's best interests.
-              </p>
-            </div>
-          </div>
+          <Card className="bg-gray-900 border-gray-800">
+            <CardContent className="p-6">
+              <Lightbulb className="w-12 h-12 text-primary mb-4" />
+              <h3 className="text-xl font-bold mb-2 text-white">Seeking Impact</h3>
+              <p className="text-gray-400">We focus on creating technology that serves humanity's best interests as AI takes on more roles in programming.</p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -123,71 +101,48 @@ function Home() {
             Our community operates in a cyclical rhythm that maximizes growth, innovation, and competitive success.
           </p>
         </div>
-      </section>
 
-      <section className="mb-16 bg-gray-900 border border-gray-800 rounded-lg p-8">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/3 mb-6 md:mb-0 md:pr-8">
-            <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto md:mx-0">
-              <span className="text-4xl text-primary">1</span>
-            </div>
-          </div>
-          <div className="md:w-2/3">
-            <h3 className="text-2xl font-bold mb-4 text-white text-center md:text-left">The Mending Moon</h3>
-            <p className="text-gray-400 text-lg">
-              A time of respite and renewal. During this hallowed season, each member of the Koalition retreats to their sanctums, honing their arcane skills and mending their digital vestments. We focus on skill development, learning new technologies, and preparing for future challenges. Let the clacking of keys be a melody of restoration!
-            </p>
-          </div>
-        </div>
-      </section>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
+          <Card className="bg-gray-900 border-gray-800">
+            <CardContent className="p-6">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl text-primary">1</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white">The Mending Moon</h3>
+              <p className="text-gray-400">A time of respite and renewal. We focus on skill development, learning new technologies, and preparing for future challenges.</p>
+            </CardContent>
+          </Card>
 
-      <section className="mb-16 bg-gray-900 border border-gray-800 rounded-lg p-8">
-        <div className="flex flex-col md:flex-row-reverse items-center">
-          <div className="md:w-1/3 mb-6 md:mb-0 md:pl-8">
-            <div className="w-24 h-24 rounded-full bg-yellow-500/20 flex items-center justify-center mx-auto md:mx-0">
-              <span className="text-4xl text-yellow-500">2</span>
-            </div>
-          </div>
-          <div className="md:w-2/3">
-            <h3 className="text-2xl font-bold mb-4 text-white text-center md:text-right">The Forging Sun</h3>
-            <p className="text-gray-400 text-lg">
-              With the rising of the Forging Sun, we set our sights on internal glory. The great forges of innovation burn bright as we craft and deploy mighty projects within our walls. We turn inward to build internal projects, refine our processes, and strengthen our technical foundation as a team. Every cog in our war machine shall be polished, every spell in our grimoires perfected!
-            </p>
-          </div>
-        </div>
-      </section>
+          <Card className="bg-gray-900 border-gray-800">
+            <CardContent className="p-6">
+              <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl text-yellow-500">2</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white">The Forging Sun</h3>
+              <p className="text-gray-400">We turn inward to build internal projects, refine our processes, and strengthen our technical foundation as a team.</p>
+            </CardContent>
+          </Card>
 
-      <section className="mb-16 bg-gray-900 border border-gray-800 rounded-lg p-8">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/3 mb-6 md:mb-0 md:pr-8">
-            <div className="w-24 h-24 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto md:mx-0">
-              <span className="text-4xl text-blue-500">3</span>
-            </div>
-          </div>
-          <div className="md:w-2/3">
-            <h3 className="text-2xl font-bold mb-4 text-white text-center md:text-left">The Scouting Winds</h3>
-            <p className="text-gray-400 text-lg">
-              As the Scouting Winds blow, we turn our gaze both inward and outward. Our wise elders convene, divining our strengths and discerning our vulnerabilities through ancient SWOT rituals. A period of assessment and recruitment begins as we evaluate our strengths and weaknesses while welcoming new talent to our ranks. Let the Koalition's numbers swell with fresh talent and vigor!
-            </p>
-          </div>
-        </div>
-      </section>
+          <Card className="bg-gray-900 border-gray-800">
+            <CardContent className="p-6">
+              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl text-blue-500">3</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white">The Scouting Winds</h3>
+              <p className="text-gray-400">A period of assessment and recruitment as we evaluate our strengths and welcome new talent to our ranks.</p>
+            </CardContent>
+          </Card>
 
-      <section className="mb-16 bg-gray-900 border border-gray-800 rounded-lg p-8">
-        <div className="flex flex-col md:flex-row-reverse items-center">
-          <div className="md:w-1/3 mb-6 md:mb-0 md:pl-8">
-            <div className="w-24 h-24 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto md:mx-0">
-              <span className="text-4xl text-purple-500">4</span>
-            </div>
-          </div>
-          <div className="md:w-2/3">
-            <h3 className="text-2xl font-bold mb-4 text-white text-center md:text-right">The Battle Frost</h3>
-            <p className="text-gray-400 text-lg">
-              When the Battle Frost descends, our kingdom awakens with a terrible fury! The Hackathon Horns sound, and every member of the Duo Keyboard Koalition dons their war-gear. The season of competition begins as we unite our skills and creativity to tackle hackathons and bring glory to the Koalition. With fingers flying and minds ablaze, we storm the digital battlefields, our code-spells weaving victory from the very ether!
-            </p>
-          </div>
+          <Card className="bg-gray-900 border-gray-800">
+            <CardContent className="p-6">
+              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl text-purple-500">4</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white">The Battle Frost</h3>
+              <p className="text-gray-400">The season of competition begins as we unite our skills and creativity to tackle hackathons and bring glory to the Koalition.</p>
+            </CardContent>
+          </Card>
         </div>
-      </section>
 
       <section className="mb-16">
         <div className="max-w-3xl mx-auto text-center">
