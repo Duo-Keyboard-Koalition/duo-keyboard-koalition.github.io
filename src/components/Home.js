@@ -52,6 +52,12 @@ function Home() {
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold mb-6">Why Join the Koalition?</h2>
           <p className="text-gray-400 text-lg mb-8">
+            The Duo Keyboard Koalition aims to produce AI-augmented Omnicoders, a new breed of developers who seamlessly integrate artificial intelligence into their coding practices. These Omnicoders leverage advanced AI tools to enhance their productivity, problem-solving capabilities, and code quality. By combining human creativity with AI-powered assistance, Omnicoders are poised to revolutionize software development, accelerating innovation and pushing the boundaries of what's possible in the digital realm.
+          </p>
+          <p className="text-gray-400 text-lg mb-8">
+            As we embark on this journey to shape the future of coding, we're reminded of the powerful words from James Cameron's Terminator franchise: "The future is not set. There is no fate but what we make for ourselves." This philosophy encapsulates our belief that through the fusion of human ingenuity and AI, we can create a future where technology serves humanity's best interests.
+          </p>
+          <p className="text-gray-400 text-lg mb-8">
             More than just a tech group, we're a community bound by friendship, shared goals, and the pursuit of excellence.
           </p>
         </div>
