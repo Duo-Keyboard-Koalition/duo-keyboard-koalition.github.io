@@ -50,15 +50,12 @@ function Home() {
 
       <section className="mb-16">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6">Why Join the Koalition?</h2>
+          <h2 className="text-3xl font-bold mb-6">Goals of the Koalition</h2>
           <p className="text-gray-400 text-lg mb-8">
-            The Duo Keyboard Koalition aims to produce AI-augmented Omnicoders, a new breed of developers who seamlessly integrate artificial intelligence into their coding practices. These Omnicoders leverage advanced AI tools to enhance their productivity, problem-solving capabilities, and code quality. By combining human creativity with AI-powered assistance, Omnicoders are poised to revolutionize software development, accelerating innovation and pushing the boundaries of what's possible in the digital realm.
+            The Koalition is a new breed of hackathon competitor. It is no longer teams of 4 attending - it is an entire community. The warring states period of hackathons has begun, and we're leading the charge.
           </p>
           <p className="text-gray-400 text-lg mb-8">
             As we embark on this journey to shape the future of coding, we're reminded of the powerful words from James Cameron's Terminator franchise: "The future is not set. There is no fate but what we make for ourselves." This philosophy encapsulates our belief that through the fusion of human ingenuity and AI, we can create a future where technology serves humanity's best interests.
-          </p>
-          <p className="text-gray-400 text-lg mb-8">
-            More than just a tech group, we're a community bound by friendship, shared goals, and the pursuit of excellence.
           </p>
         </div>
 
@@ -68,9 +65,9 @@ function Home() {
               <Heart className="w-16 h-16 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-white">Friendship & Camaraderie</h3>
+              <h3 className="text-xl font-bold mb-3 text-white">AI-augmented Omnicoders</h3>
               <p className="text-gray-400 text-lg">
-                Build lasting connections with like-minded individuals who share your passion for technology and innovation. Our community thrives on mutual support and encouragement.
+                The Duo Keyboard Koalition aims to produce AI-augmented Omnicoders, a new breed of developers who seamlessly integrate artificial intelligence into their coding practices. These Omnicoders leverage advanced AI tools to enhance their productivity, problem-solving capabilities, and code quality.
               </p>
             </div>
           </div>
@@ -82,9 +79,9 @@ function Home() {
               <Zap className="w-16 h-16 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-white text-center md:text-right">Personal Growth</h3>
+              <h3 className="text-xl font-bold mb-3 text-white text-center md:text-right">Sustainable Projects</h3>
               <p className="text-gray-400 text-lg text-center md:text-right">
-                Challenge yourself in a supportive environment. Develop not just technical skills, but also leadership, communication, and problem-solving abilities that will serve you throughout your career.
+                We preserve hackathon projects and turn them into long-term sustainable initiatives. Instead of letting great ideas fade after competitions, we nurture them into mature products with real-world impact, leveraging our collective expertise and resources.
               </p>
             </div>
           </div>
@@ -96,9 +93,9 @@ function Home() {
               <GitBranch className="w-16 h-16 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-white">Build with the Team</h3>
+              <h3 className="text-xl font-bold mb-3 text-white">Canada's Largest Hackathon Faction</h3>
               <p className="text-gray-400 text-lg">
-                Experience the power of collaborative development. Transform hackathon projects into sustainable side projects with real-world impact, guided by our collective expertise.
+                We're building Canada's largest hackathon faction, bringing together talented individuals under one banner to dominate competitions. Our collective strength, diverse skills, and collaborative approach give us an edge that individual teams cannot match.
               </p>
             </div>
           </div>
@@ -110,9 +107,9 @@ function Home() {
               <Lightbulb className="w-16 h-16 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-3 text-white text-center md:text-right">Win for the Koalition</h3>
+              <h3 className="text-xl font-bold mb-3 text-white text-center md:text-right">Seeking Impact</h3>
               <p className="text-gray-400 text-lg text-center md:text-right">
-                Join forces to compete and excel in hackathons. Every victory strengthens our community and creates new opportunities for all members to shine.
+                As AI begins to take more roles in programming, it is the programmer's responsibility to know where they can make an impact with their skills. The Koalition believes software development is a very people-oriented career, as software and information technology form the backbone of our information network. We focus on creating technology that serves humanity's best interests.
               </p>
             </div>
           </div>
