@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AuthButtons from './AuthButtons';
+import AuthButtons from '../components/AuthButtons';
 import { useAuth } from '../context/AuthContext';
 
 function SignIn() {

@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 //import QRCode from './components/QRCode';
 import Footer from './components/Footer';
-import Home from './components/Home';
-import About from './components/About';
-import Projects from './components/Projects';
-import Events from './components/Events';
-import Wins from './components/Wins';
-import SignIn from './components/SignIn';
-import Profile from './components/Profile';
+import Home from './pages/Home';
+import About from './pages/About';
+import SignIn from './pages/SignIn';
+import Profile from './pages/Profile';
+import Projects from './pages/Projects';
+import Events from './pages/Events';
+import Wins from './pages/Wins';
+
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <main className="flex-grow container mx-auto px-4 py-12">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/events" element={<Events />} />
               <Route path="/wins" element={<Wins />} />

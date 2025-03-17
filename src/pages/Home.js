@@ -1,7 +1,7 @@
 import React from 'react'
 import { Code2, Users, Trophy, Rocket, Heart, Zap, Lightbulb, GitBranch } from 'lucide-react'
-import { Card, CardContent } from "./ui/card"
-import QRCode from './QRCode'
+import { Card, CardContent } from "../components/ui/card"
+import QRCode from '../components/QRCode'
 import { useAuth } from '../context/AuthContext'
 
 function Home() {
