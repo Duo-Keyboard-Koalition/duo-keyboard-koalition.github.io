@@ -114,10 +114,15 @@ export const AuthProvider = ({ children }) => {
   const signInWithDiscord = async () => {
     try {
       setAuthError(null);
+          // Determine the correct redirect URL based on environment
+    const redirectUrl = process.env.NODE_ENV === 'production' 
+    ? "https://duo-keyboard-koalition.github.io" 
+    : window.location.origin;
+    console.log('Redirect URL:', redirectUrl);
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'discord',
         options: {
-          redirectTo: "https://duo-keyboard-koalition.github.io/"
+          redirectTo: redirectUrl
         }
       });
       if (error) throw error;
@@ -132,6 +137,8 @@ export const AuthProvider = ({ children }) => {
     try {
       setAuthError(null); // Reset the error state
       const { error } = await supabase.auth.signOut();
+      // redirects the user to home page after sign out
+      window.location.href = '/';
       if (error) {
         console.error('Supabase error during sign-out:', error.message);
         setAuthError(error.message);

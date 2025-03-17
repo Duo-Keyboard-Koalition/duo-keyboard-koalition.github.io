@@ -4,7 +4,7 @@ import Header from './components/Header';
 //import QRCode from './components/QRCode';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import About from './pages/About';
+import Goals from './pages/Goals';
 import SignIn from './pages/SignIn';
 import Profile from './pages/Profile';
 import Projects from './pages/Projects';
@@ -22,7 +22,7 @@ function App() {
           <main className="flex-grow container mx-auto px-4 py-12">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/goals" element={<Goals />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/events" element={<Events />} />
               <Route path="/wins" element={<Wins />} />
