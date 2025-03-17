@@ -1,133 +1,99 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { supabase } from '../utils/supabase';
 
+// Create the AuthContext
 const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
+// AuthProvider Component
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [authError, setAuthError] = useState(null);
 
-  // Fetch user profile from database
+  // Fetch user profile from Supabase
   const fetchUserProfile = async (userId) => {
     try {
+      if (!userId) return null;
+      
+      // Try to get profile from profiles table
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
         .eq('id', userId)
         .single();
-
-      if (error) {
-        console.error('Error fetching user profile:', error);
+        
+      if (error && error.code !== 'PGRST116') {
+        console.error("Error fetching profile:", error);
         return null;
       }
-
-      if (data) {
-        setUserProfile(data);
-        return data;
-      } else {
-        // Create profile if it doesn't exist
-        return createUserProfile(userId);
-      }
+      
+      return data;
     } catch (error) {
-      console.error('Error in fetchUserProfile:', error);
+      console.error("Error in fetchUserProfile:", error);
       return null;
     }
   };
 
-  // Create a new user profile
-  const createUserProfile = async (userId) => {
-    try {
-      const { data: userData } = await supabase.auth.getUser();
-      const user = userData?.user;
+  // Update user and profile when auth state changes
+  const updateUserAndProfile = async (session) => {
+    const currentUser = session?.user || null;
+    setUser(currentUser);
+    
+    if (currentUser) {
+      // Get profile data from database
+      const profileData = await fetchUserProfile(currentUser.id);
       
-      if (!user) return null;
-
-      const newProfile = {
-        id: userId,
-        email: user.email,
-        full_name: user.user_metadata?.full_name || '',
-        avatar_url: user.user_metadata?.avatar_url || '',
-        provider: user.app_metadata?.provider || '',
-        updated_at: new Date().toISOString(),
+      // Combine database profile with user_metadata
+      const combinedProfile = {
+        id: currentUser.id,
+        avatar_url: currentUser.user_metadata?.avatar_url || profileData?.avatar_url,
+        full_name: currentUser.user_metadata?.full_name || profileData?.full_name,
+        username: currentUser.user_metadata?.username || profileData?.username,
+        website: currentUser.user_metadata?.website || profileData?.website,
+        bio: profileData?.bio,
+        // Include any other profile fields you need
       };
-
-      const { data, error } = await supabase
-        .from('profiles')
-        .insert([newProfile])
-        .select();
-
-      if (error) {
-        console.error('Error creating user profile:', error);
-        return null;
-      }
-
-      setUserProfile(data[0]);
-      return data[0];
-    } catch (error) {
-      console.error('Error in createUserProfile:', error);
-      return null;
+      
+      setUserProfile(combinedProfile);
+    } else {
+      setUserProfile(null);
     }
   };
 
   useEffect(() => {
-    // Check for active session on mount
-    const getSession = async () => {
+    // Get the current session on initial load
+    async function getInitialSession() {
       try {
-        const { data: { session }, error } = await supabase.auth.getSession();
+        const { data, error } = await supabase.auth.getSession();
+        if (error) throw error;
         
-        if (error) {
-          throw error;
-        }
-        
-        setUser(session?.user || null);
-        
-        if (session?.user) {
-          await fetchUserProfile(session.user.id);
-        }
-        
-        setLoading(false);
+        await updateUserAndProfile(data.session);
       } catch (error) {
-        console.error('Error getting session:', error);
-        setAuthError(error.message);
+        console.error("Error fetching session:", error.message);
+      } finally {
         setLoading(false);
       }
-    };
+    }
 
-    getSession();
+    getInitialSession();
 
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        setUser(session?.user || null);
-        
-        if (event === 'SIGNED_IN' && session?.user) {
-          await fetchUserProfile(session.user.id);
-        } else if (event === 'SIGNED_OUT') {
-          setUserProfile(null);
-        }
-        
-        setLoading(false);
+    // Listen for auth state changes
+    const { data } = supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        await updateUserAndProfile(session);
       }
     );
 
+    // Cleanup the listener on unmount
     return () => {
-      subscription.unsubscribe();
+      if (data && data.subscription) {
+        data.subscription.unsubscribe();
+      }
     };
   }, []);
 
-  const signOut = async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-    } catch (error) {
-      console.error('Error signing out:', error);
-      setAuthError(error.message);
-    }
-  };
-
-  // Sign in with Google
+  // Google Sign-In Function
   const signInWithGoogle = async () => {
     try {
       setAuthError(null);
@@ -139,12 +105,12 @@ export function AuthProvider({ children }) {
       });
       if (error) throw error;
     } catch (error) {
-      console.error('Error signing in with Google:', error);
+      console.error('Error signing in with Google:', error.message);
       setAuthError(error.message);
     }
   };
 
-  // Sign in with Discord
+  // Discord Sign-In Function
   const signInWithDiscord = async () => {
     try {
       setAuthError(null);
@@ -156,25 +122,46 @@ export function AuthProvider({ children }) {
       });
       if (error) throw error;
     } catch (error) {
-      console.error('Error signing in with Discord:', error);
+      console.error('Error signing in with Discord:', error.message);
       setAuthError(error.message);
     }
   };
 
-  const value = {
-    user,
-    userProfile,
-    loading,
-    authError,
-    signOut,
-    signInWithGoogle,
-    signInWithDiscord,
-    fetchUserProfile,
+  const signOut = async () => {
+    console.log('Initiating sign-out process...');
+    try {
+      setAuthError(null); // Reset the error state
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        console.error('Supabase error during sign-out:', error.message);
+        setAuthError(error.message);
+        return;
+      }
+      console.log('User successfully signed out.');
+      setUser(null); // Clear the user state manually
+    } catch (error) {
+      console.error('Error in signOut function:', error.message);
+      setAuthError(error.message);
+    }
   };
+  
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+  return (
+    <AuthContext.Provider 
+      value={{ 
+        user, 
+        userProfile,
+        loading, 
+        authError, 
+        signInWithGoogle, 
+        signInWithDiscord, 
+        signOut 
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
+// Custom Hook for AuthContext
+export const useAuth = () => useContext(AuthContext);

@@ -5,6 +5,7 @@ import { supabase } from '../utils/supabase';
 
 function Profile() {
   const { user, userProfile, loading, signOut } = useAuth();
+  console.log(user);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     full_name: '',
