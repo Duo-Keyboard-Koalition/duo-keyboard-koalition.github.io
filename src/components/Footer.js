@@ -14,8 +14,8 @@ function Footer() {
             <span className="text-gray-400 text-sm">© 2024 Duo Keyboard Koalition</span>
           </div>
           <div className="flex gap-4">
-            <a href="https://github.com/your-github-org" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary text-sm">GitHub</a>
-            <a href="https://twitter.com/your-twitter-handle" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary text-sm">Twitter</a>
+            <a href="https://github.com/Duo-Keyboard-Koalition/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary text-sm">GitHub</a>
+            <a href="https://www.linkedin.com/company/pygmalion-koalition/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary text-sm">linkedin</a>
           </div>
         </div>
       </div>
