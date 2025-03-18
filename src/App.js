@@ -5,12 +5,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Goals from './pages/Goals';
-import SignIn from './pages/SignIn';
 import Profile from './pages/Profile';
 import Projects from './pages/Projects';
 import Events from './pages/Events';
 import Wins from './pages/Wins';
-
+import Hero from './components/Hero';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -19,6 +18,7 @@ function App() {
       <Router>
         <div className="min-h-screen flex flex-col bg-black text-white">
           <Header />
+          <Hero />
           <main className="flex-grow container mx-auto px-4 py-12">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -26,7 +26,6 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/events" element={<Events />} />
               <Route path="/wins" element={<Wins />} />
-              <Route path="/signin" element={<SignIn />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
