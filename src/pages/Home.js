@@ -10,7 +10,7 @@ import {
   GitBranch,
 } from "lucide-react";
 import { Card, CardContent } from "../components/ui/card";
-
+import Hero from "../components/Hero";
 import { useAuth } from "../context/AuthContext";
 
 function Home() {
@@ -22,6 +22,7 @@ function Home() {
     "Koalition Member";
   return (
     <div>
+      <Hero />
       <section className="mb-16">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold mb-6">

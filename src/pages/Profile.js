@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { supabase } from '../utils/supabase';
-
 function Profile() {
   const { user, userProfile, loading, signOut } = useAuth();
   console.log(user);

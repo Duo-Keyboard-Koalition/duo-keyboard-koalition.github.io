@@ -1,7 +1,7 @@
 import React from 'react';
 import eventsData from '../data/events.json';
 import { Card, CardContent } from "../components/ui/card";
-
+import Hero from "../components/Hero";
 //    {
 //      "name": "DKK Code Jam",
 //      "date": "2024-09-05",
@@ -13,6 +13,7 @@ import { Card, CardContent } from "../components/ui/card";
 function Events() {
   return (
     <div>
+      <Hero />
     <section>
       <h2 className="text-3xl font-bold mb-6">WIP: Upcoming Events</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

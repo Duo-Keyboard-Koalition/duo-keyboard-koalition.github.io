@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-
+import Hero from '../components/Hero';
 
 function AuthButtons() {
   const { authError, user, signInWithGoogle, signInWithDiscord, signOut } = useAuth();
 
   return (
     <div className="flex flex-col space-y-6 items-center">
+      <Hero />
       {authError && (
         <div className="bg-red-500/10 border border-red-500 text-red-500 px-4 py-2 rounded-md text-sm w-full max-w-[240px] text-center">
           {authError}

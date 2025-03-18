@@ -10,11 +10,12 @@ import {
   GitBranch,
 } from "lucide-react";
 import { Card, CardContent } from "../components/ui/card";
-
+import Hero from "../components/Hero";
 import QRCode from "../components/ui/QRCode";
 function Goals() {
   return (
     <div>
+      <Hero />
       <section className="mb-16">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold mb-6">Our Ultimate Goal</h2>
