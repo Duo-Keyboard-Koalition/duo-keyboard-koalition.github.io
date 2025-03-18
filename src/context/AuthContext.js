@@ -8,7 +8,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [authError, setAuthError] = useState(null);
 
   // Fetch user profile from Supabase
@@ -136,6 +136,7 @@ export const AuthProvider = ({ children }) => {
     console.log('Initiating sign-out process...');
     try {
       setAuthError(null); // Reset the error state
+      setLoading(true);
       const { error } = await supabase.auth.signOut();
       // redirects the user to home page after sign out
       window.location.href = '/';
@@ -150,6 +151,7 @@ export const AuthProvider = ({ children }) => {
       console.error('Error in signOut function:', error.message);
       setAuthError(error.message);
     }
+    setLoading(false);
   };
   
 

@@ -19,7 +19,7 @@ function Profile() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if ( !user && !loading) {
       navigate('/signin');
     }
 
