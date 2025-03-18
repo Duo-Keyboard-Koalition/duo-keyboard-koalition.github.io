@@ -10,7 +10,7 @@ import Profile from './pages/Profile';
 import Projects from './pages/Projects';
 import Events from './pages/Events';
 import Wins from './pages/Wins';
-
+import Hero from "./components/Hero";
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
       <Router>
         <div className="min-h-screen flex flex-col bg-black text-white">
           <Header />
+          <Hero />
           <main className="flex-grow container mx-auto px-4 py-12">
             <Routes>
               <Route path="/" element={<Home />} />

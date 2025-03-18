@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 function Projects() {
   return (
     <div>
-      <Hero />
+     \
     
     <section>
       <h2 className="text-3xl font-bold mb-6">Our Projects</h2>
