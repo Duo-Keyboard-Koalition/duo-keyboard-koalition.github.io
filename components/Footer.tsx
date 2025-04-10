@@ -18,7 +18,7 @@ export default function Footer() {
             <span className="text-white text-sm">© 2024 Duo Keyboard Koalition</span>
           </div>
           <div className="flex gap-4">
-            <Link href="https://github.com/duo-keyboard-koalitionithub" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary text-sm">GitHub</Link>
+            <Link href="https://github.com/duo-keyboard-koalition" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary text-sm">GitHub</Link>
             <Link href="https://www.linkedin.com/company/pygmalion-koalition" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary text-sm">Linked In</Link>
           </div>
         </div>
