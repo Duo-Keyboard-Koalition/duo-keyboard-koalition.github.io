@@ -77,11 +77,7 @@ function Home() {
           </div>
         </section>
         <section className="mb-24 flex justify-center">
-          <QRCode
-            value="https://duo-keyboard-koalition.github.io/"
-            title="Visit Our Website"
-            description="Scan this code to visit our official website"
-          />
+          <QRCode/>
         </section>
       </div>
     </div>
