@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Hero } from "@/components/Hero";
-import QRCode from "@/components/ui/QRCode";
+
 
 export default function Goals() {
   return (
@@ -83,13 +83,7 @@ export default function Goals() {
           </div>
         </section>
 
-        <section className="mb-24 flex justify-center">
-          <QRCode
-            value="https://duo-keyboard-koalition.github.io/"
-            title="Visit Our Website"
-            description="Scan this code to visit our official website"
-          />
-        </section>
+
 
         <section className="mb-16">
           <div className="max-w-3xl mx-auto text-center">

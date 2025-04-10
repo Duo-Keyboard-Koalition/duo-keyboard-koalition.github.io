@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { Hero } from '@/components/Hero';
+import Link from 'next/link';
 
 interface Project {
   name: string;
@@ -23,12 +24,12 @@ function projectItem(project: Project, index: string) {
           Tech Stack: {project.techStack.join(', ')}
         </p>
         <div className="mt-2 flex justify-between">
-          <a href={project.githubLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <Link href={project.githubLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">GitHub</Link>
           {project.devpostLink ? (
-            <a href={project.devpostLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Devpost</a>
+            <Link href={project.devpostLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Devpost</Link>
           ) : (
             project.doraLink && (
-              <a href={project.doraLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Dora</a>
+              <Link href={project.doraLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Dora</Link>
             )
           )}
         </div>

@@ -60,12 +60,12 @@ function SkillsContent() {
             </div>
             
             <div className="flex space-x-4">
-              <Link href="/profile" passHref legacyBehavior>
+              <Link href="/profile" passHref >
                 <Button asChild variant="outline" size="default">
                   <a>View Profile</a>
                 </Button>
               </Link>
-              <Link href="/" passHref legacyBehavior>
+              <Link href="/" passHref >
                 <Button asChild variant="default" size="default">
                   <a>Return to Home</a>
                 </Button>

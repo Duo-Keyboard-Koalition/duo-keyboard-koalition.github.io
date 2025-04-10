@@ -10,9 +10,12 @@ export function Hero() {
         <Image
           src="/banner.png"
           alt="Background"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center'
+          }}
         />
       </div>
     </div>

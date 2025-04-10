@@ -32,7 +32,7 @@ function AccessDenied(){
         This is a protected area that requires authentication. Please sign in to access this content.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Link href="/sign-in" passHref legacyBehavior>
+        <Link href="/sign-in" passHref >
           <Button asChild variant="default" size="default">
             <a>Sign In</a>
           </Button>
@@ -40,7 +40,7 @@ function AccessDenied(){
         <Button variant="outline" size="default" onClick={() => router.back()}>
           Go Back
         </Button>
-        <Link href="/" passHref legacyBehavior>
+        <Link href="/" passHref >
           <Button asChild variant="secondary" size="default">
             <a>Return to Home</a>
           </Button>

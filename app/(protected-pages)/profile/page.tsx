@@ -64,12 +64,12 @@ function ProfileContent() {
             
             <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
-                <Link href="/skills" passHref legacyBehavior>
+                <Link href="/skills" passHref >
                   <Button asChild variant="outline" size="default">
                     <a>View Skills</a>
                   </Button>
                 </Link>
-                <Link href="/" passHref legacyBehavior>
+                <Link href="/" passHref >
                   <Button asChild variant="secondary" size="default">
                     <a>Return to Home</a>
                   </Button>

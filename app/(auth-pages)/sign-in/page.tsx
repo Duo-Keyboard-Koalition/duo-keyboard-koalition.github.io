@@ -18,10 +18,11 @@ function SignInBox() {
         Sign in to access exclusive features and participate in our community.
       </p>
       <Auth
-        supabaseClient={supabase}
-        appearance={{ theme: ThemeSupa }}
-        providers={["google", "discord"]}
-      />
+  supabaseClient={supabase}
+  appearance={{ theme: ThemeSupa }}
+  providers={["google", "discord"]}
+  redirectTo={typeof window !== 'undefined' ? window.location.origin : ''}
+/>
     </div>
   );
 }

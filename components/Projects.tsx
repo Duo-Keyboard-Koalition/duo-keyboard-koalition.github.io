@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import projectsData from '@/app/data/projects.json';
 
 interface Project {
@@ -34,12 +35,12 @@ function Projects() {
                 Tech Stack: {project.techStack.join(', ')}
               </p>
               <div className="mt-2 flex justify-between">
-                <a href={project.githubLink} className="text-blue-500 hover:underline transition-colors duration-200">GitHub</a>
+                <Link href={project.githubLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">GitHub</Link>
                 {project.devpostLink ? (
-                  <a href={project.devpostLink} className="text-blue-500 hover:underline transition-colors duration-200">Devpost</a>
+                  <Link href={project.devpostLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Devpost</Link>
                 ) : (
                   project.doraLink && (
-                    <a href={project.doraLink} className="text-blue-500 hover:underline transition-colors duration-200">Dora</a>
+                    <Link href={project.doraLink} className="text-blue-500 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Dora</Link>
                   )
                 )}
               </div>
