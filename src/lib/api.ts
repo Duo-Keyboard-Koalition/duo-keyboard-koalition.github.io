@@ -141,9 +141,7 @@ class ApiClient {
   }
 
   // Projects API
-  async getAllProjects(): Promise<ApiResponse<any[]>> {
-    return this.publicRequest('user_projects?select=*&order=created_at.desc');
-  }
+  // Note: Public projects removed - only authenticated user projects available
 
   async getUserProjects(): Promise<ApiResponse<{ projects: any[] }>> {
     return this.request('user-projects');

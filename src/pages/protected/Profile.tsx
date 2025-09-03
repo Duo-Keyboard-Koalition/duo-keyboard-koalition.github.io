@@ -45,8 +45,7 @@ function Profile(): JSX.Element {
         </p>
       </div>
       
-      <div className="max-w-2xl">
-        <Card className="bg-gray-900 border-gray-800">
+      <Card className="bg-gray-900 border-gray-800">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center justify-between w-full">
@@ -162,8 +161,7 @@ function Profile(): JSX.Element {
               )}
             </form>
           </CardContent>
-        </Card>
-      </div>
+      </Card>
     </div>
   );
 }
