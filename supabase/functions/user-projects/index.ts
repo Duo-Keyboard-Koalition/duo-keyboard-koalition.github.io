@@ -137,9 +137,50 @@ Deno.serve(async (req) => {
           )
         } else {
           try {
-            console.log('Fetching projects for user:', user.id)
+            console.log('=== FETCHING PROJECTS FOR USER ===')
+            console.log('User ID:', user.id)
+            console.log('User email:', user.email)
             
-            // Try to get projects with contributor info first
+            // First, let's check what's in the user_projects table
+            const { data: allProjects, error: allError } = await supabaseClient
+              .from('user_projects')
+              .select('*')
+            
+            console.log('=== ALL PROJECTS IN DATABASE ===')
+            console.log('Total projects in database:', allProjects?.length || 0)
+            console.log('All projects:', JSON.stringify(allProjects, null, 2))
+            
+            // Check projects for this specific user
+            const { data: userProjects, error: userError } = await supabaseClient
+              .from('user_projects')
+              .select('*')
+              .eq('user_id', user.id)
+            
+            console.log('=== USER PROJECTS ===')
+            console.log('Projects for user:', userProjects?.length || 0)
+            console.log('User projects:', JSON.stringify(userProjects, null, 2))
+            
+            // Check contributor records
+            const { data: allContributors, error: contributorError } = await supabaseClient
+              .from('project_contributors')
+              .select('*')
+            
+            console.log('=== ALL CONTRIBUTOR RECORDS ===')
+            console.log('Total contributor records:', allContributors?.length || 0)
+            console.log('All contributors:', JSON.stringify(allContributors, null, 2))
+            
+            // Check contributor records for this user
+            const { data: userContributors, error: userContributorError } = await supabaseClient
+              .from('project_contributors')
+              .select('*')
+              .eq('user_id', user.id)
+            
+            console.log('=== USER CONTRIBUTOR RECORDS ===')
+            console.log('Contributor records for user:', userContributors?.length || 0)
+            console.log('User contributors:', JSON.stringify(userContributors, null, 2))
+            
+            // Now try to get projects with contributor info first
+            console.log('=== ATTEMPTING COMPLEX QUERY ===')
             const { data: projects, error } = await supabaseClient
               .from('user_projects')
               .select(`
@@ -156,8 +197,9 @@ Deno.serve(async (req) => {
               .order('created_at', { ascending: false })
 
             if (error) {
-              console.error('Complex query failed:', error)
-              console.log('Falling back to simple user_id query')
+              console.error('=== COMPLEX QUERY FAILED ===')
+              console.error('Error details:', JSON.stringify(error, null, 2))
+              console.log('=== FALLING BACK TO SIMPLE QUERY ===')
               
               // Fallback: Get projects directly by user_id
               const { data: fallbackProjects, error: fallbackError } = await supabaseClient
@@ -167,11 +209,14 @@ Deno.serve(async (req) => {
                 .order('created_at', { ascending: false })
 
               if (fallbackError) {
-                console.error('Fallback query also failed:', fallbackError)
+                console.error('=== FALLBACK QUERY ALSO FAILED ===')
+                console.error('Fallback error details:', JSON.stringify(fallbackError, null, 2))
                 throw fallbackError
               }
 
+              console.log('=== FALLBACK QUERY SUCCESS ===')
               console.log('Fallback query returned:', fallbackProjects?.length || 0, 'projects')
+              console.log('Fallback projects data:', JSON.stringify(fallbackProjects, null, 2))
 
               // Add default owner role for fallback
               const formattedFallback = (fallbackProjects || []).map(project => ({
@@ -181,6 +226,9 @@ Deno.serve(async (req) => {
                 joined_at: project.created_at
               }))
 
+              console.log('=== RETURNING FALLBACK RESPONSE ===')
+              console.log('Final fallback response:', JSON.stringify(formattedFallback, null, 2))
+              
               return new Response(
                 JSON.stringify({ projects: formattedFallback }),
                 {
@@ -189,7 +237,9 @@ Deno.serve(async (req) => {
               )
             }
 
-            console.log('Complex query succeeded, returned:', projects?.length || 0, 'projects')
+            console.log('=== COMPLEX QUERY SUCCESS ===')
+            console.log('Complex query returned:', projects?.length || 0, 'projects')
+            console.log('Complex query data:', JSON.stringify(projects, null, 2))
 
             // Format the response to include contributor info
             const formattedProjects = (projects || []).map(project => ({
@@ -199,6 +249,9 @@ Deno.serve(async (req) => {
               joined_at: project.project_contributors[0]?.joined_at
             }))
 
+            console.log('=== RETURNING COMPLEX QUERY RESPONSE ===')
+            console.log('Final complex response:', JSON.stringify(formattedProjects, null, 2))
+
             return new Response(
               JSON.stringify({ projects: formattedProjects }),
               {
@@ -206,7 +259,8 @@ Deno.serve(async (req) => {
               }
             )
           } catch (error) {
-            console.error('All queries failed:', error)
+            console.error('=== ALL QUERIES FAILED ===')
+            console.error('Final error:', JSON.stringify(error, null, 2))
             
             // Final fallback: empty projects array
             return new Response(

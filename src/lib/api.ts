@@ -32,10 +32,10 @@ class ApiClient {
     requireAuth: boolean = true
   ): Promise<ApiResponse<T>> {
     try {
-      const headers: HeadersInit = {
+      const headers: Record<string, string> = {
         'apikey': this.anonKey,
         'Content-Type': 'application/json',
-        ...options.headers,
+        ...(options.headers as Record<string, string> || {}),
       };
 
       // Add auth token if required and available
