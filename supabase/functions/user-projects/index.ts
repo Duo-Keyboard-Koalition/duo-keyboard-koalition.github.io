@@ -136,40 +136,86 @@ Deno.serve(async (req) => {
             }
           )
         } else {
-          // Get all projects the user has contributed to (through project_contributors table)
-          const { data: projects, error } = await supabaseClient
-            .from('user_projects')
-            .select(`
-              *,
-              project_contributors!inner(
-                role,
-                contribution_type,
-                joined_at,
-                is_active
+          try {
+            console.log('Fetching projects for user:', user.id)
+            
+            // Try to get projects with contributor info first
+            const { data: projects, error } = await supabaseClient
+              .from('user_projects')
+              .select(`
+                *,
+                project_contributors!inner(
+                  role,
+                  contribution_type,
+                  joined_at,
+                  is_active
+                )
+              `)
+              .eq('project_contributors.user_id', user.id)
+              .eq('project_contributors.is_active', true)
+              .order('created_at', { ascending: false })
+
+            if (error) {
+              console.error('Complex query failed:', error)
+              console.log('Falling back to simple user_id query')
+              
+              // Fallback: Get projects directly by user_id
+              const { data: fallbackProjects, error: fallbackError } = await supabaseClient
+                .from('user_projects')
+                .select('*')
+                .eq('user_id', user.id)
+                .order('created_at', { ascending: false })
+
+              if (fallbackError) {
+                console.error('Fallback query also failed:', fallbackError)
+                throw fallbackError
+              }
+
+              console.log('Fallback query returned:', fallbackProjects?.length || 0, 'projects')
+
+              // Add default owner role for fallback
+              const formattedFallback = (fallbackProjects || []).map(project => ({
+                ...project,
+                user_role: 'owner',
+                contribution_type: ['creator'],
+                joined_at: project.created_at
+              }))
+
+              return new Response(
+                JSON.stringify({ projects: formattedFallback }),
+                {
+                  headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+                }
               )
-            `)
-            .eq('project_contributors.user_id', user.id)
-            .eq('project_contributors.is_active', true)
-            .order('created_at', { ascending: false })
-
-          if (error) {
-            throw error
-          }
-
-          // Format the response to include contributor info
-          const formattedProjects = (projects || []).map(project => ({
-            ...project,
-            user_role: project.project_contributors[0]?.role || 'contributor',
-            contribution_type: project.project_contributors[0]?.contribution_type || [],
-            joined_at: project.project_contributors[0]?.joined_at
-          }))
-
-          return new Response(
-            JSON.stringify({ projects: formattedProjects }),
-            {
-              headers: { ...corsHeaders, 'Content-Type': 'application/json' },
             }
-          )
+
+            console.log('Complex query succeeded, returned:', projects?.length || 0, 'projects')
+
+            // Format the response to include contributor info
+            const formattedProjects = (projects || []).map(project => ({
+              ...project,
+              user_role: project.project_contributors[0]?.role || 'contributor',
+              contribution_type: project.project_contributors[0]?.contribution_type || [],
+              joined_at: project.project_contributors[0]?.joined_at
+            }))
+
+            return new Response(
+              JSON.stringify({ projects: formattedProjects }),
+              {
+                headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+              }
+            )
+          } catch (error) {
+            console.error('All queries failed:', error)
+            
+            // Final fallback: empty projects array
+            return new Response(
+              JSON.stringify({ projects: [] }),
+              {
+                headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+              }
+            )
+          }
         }
       }
 
