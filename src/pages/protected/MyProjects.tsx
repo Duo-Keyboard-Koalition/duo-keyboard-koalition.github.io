@@ -17,6 +17,9 @@ export interface UserProject {
   image_url?: string;
   created_at: string;
   updated_at: string;
+  user_role?: 'owner' | 'contributor' | 'viewer';
+  contribution_type?: string[];
+  joined_at?: string;
 }
 
 function MyProjects(): JSX.Element {
@@ -254,36 +257,73 @@ function MyProjects(): JSX.Element {
             <Card key={project.id} className="bg-gray-900 border-gray-800 hover:border-primary/50 transition-colors">
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-white">{project.name}</h3>
-                  <div className="flex gap-2">
-                    <button className="text-gray-400 hover:text-primary transition-colors">
-                      <Edit className="w-4 h-4" />
-                    </button>
-                    <button 
-                      onClick={() => handleDeleteProject(project.id)}
-                      className="text-gray-400 hover:text-red-400 transition-colors"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">{project.name}</h3>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className={`px-2 py-1 text-xs rounded-md ${
+                        project.user_role === 'owner' 
+                          ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' 
+                          : project.user_role === 'contributor'
+                          ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                          : 'bg-gray-500/20 text-gray-400 border border-gray-500/30'
+                      }`}>
+                        {project.user_role === 'owner' ? '👑 Owner' : 
+                         project.user_role === 'contributor' ? '🤝 Contributor' : '👁️ Viewer'}
+                      </span>
+
+                    </div>
                   </div>
+                  {project.user_role === 'owner' && (
+                    <div className="flex gap-2">
+                      <button className="text-gray-400 hover:text-primary transition-colors">
+                        <Edit className="w-4 h-4" />
+                      </button>
+                      <button 
+                        onClick={() => handleDeleteProject(project.id)}
+                        className="text-gray-400 hover:text-red-400 transition-colors"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
                 </div>
                 
                 <p className="text-gray-400 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 
-                {project.tech_stack.length > 0 && (
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech_stack.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-1 bg-primary/20 text-primary text-xs rounded-md"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                {(project.tech_stack.length > 0 || project.contribution_type?.length) && (
+                  <div className="mb-4 space-y-2">
+                    {project.tech_stack.length > 0 && (
+                      <div>
+                        <p className="text-xs text-gray-500 mb-1">Tech Stack:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tech_stack.map((tech, index) => (
+                            <span
+                              key={index}
+                              className="px-2 py-1 bg-primary/20 text-primary text-xs rounded-md"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {project.contribution_type && project.contribution_type.length > 0 && (
+                      <div>
+                        <p className="text-xs text-gray-500 mb-1">My Contributions:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.contribution_type.map((contrib, index) => (
+                            <span
+                              key={index}
+                              className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-md"
+                            >
+                              {contrib}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
                 

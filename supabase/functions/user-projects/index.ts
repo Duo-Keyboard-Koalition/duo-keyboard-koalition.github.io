@@ -43,6 +43,37 @@ interface Database {
           image_url?: string | null
         }
       }
+      project_contributors: {
+        Row: {
+          id: string
+          project_id: string
+          user_id: string
+          role: 'owner' | 'contributor' | 'viewer'
+          contribution_type: string[] | null
+          joined_at: string
+          is_active: boolean
+        }
+        Insert: {
+          project_id: string
+          user_id: string
+          role?: 'owner' | 'contributor' | 'viewer'
+          contribution_type?: string[] | null
+          is_active?: boolean
+        }
+        Update: {
+          role?: 'owner' | 'contributor' | 'viewer'
+          contribution_type?: string[] | null
+          is_active?: boolean
+        }
+      }
+      user_profiles: {
+        Row: {
+          id: string
+          username: string | null
+          bio: string | null
+          avatar_url: string | null
+        }
+      }
     }
   }
 }
@@ -105,19 +136,36 @@ Deno.serve(async (req) => {
             }
           )
         } else {
-          // Get all user projects
+          // Get all projects the user has contributed to (through project_contributors table)
           const { data: projects, error } = await supabaseClient
             .from('user_projects')
-            .select('*')
-            .eq('user_id', user.id)
+            .select(`
+              *,
+              project_contributors!inner(
+                role,
+                contribution_type,
+                joined_at,
+                is_active
+              )
+            `)
+            .eq('project_contributors.user_id', user.id)
+            .eq('project_contributors.is_active', true)
             .order('created_at', { ascending: false })
 
           if (error) {
             throw error
           }
 
+          // Format the response to include contributor info
+          const formattedProjects = (projects || []).map(project => ({
+            ...project,
+            user_role: project.project_contributors[0]?.role || 'contributor',
+            contribution_type: project.project_contributors[0]?.contribution_type || [],
+            joined_at: project.project_contributors[0]?.joined_at
+          }))
+
           return new Response(
-            JSON.stringify({ projects: projects || [] }),
+            JSON.stringify({ projects: formattedProjects }),
             {
               headers: { ...corsHeaders, 'Content-Type': 'application/json' },
             }
@@ -128,7 +176,8 @@ Deno.serve(async (req) => {
       case 'POST': {
         const projectData = await req.json()
         
-        const { data: project, error } = await supabaseClient
+        // Create the project first
+        const { data: project, error: projectError } = await supabaseClient
           .from('user_projects')
           .insert({
             user_id: user.id,
@@ -137,8 +186,29 @@ Deno.serve(async (req) => {
           .select()
           .single()
 
-        if (error) {
-          throw error
+        if (projectError) {
+          throw projectError
+        }
+
+        // Add the user as the owner in project_contributors
+        const { error: contributorError } = await supabaseClient
+          .from('project_contributors')
+          .insert({
+            project_id: project.id,
+            user_id: user.id,
+            role: 'owner',
+            contribution_type: ['creator'],
+            is_active: true
+          })
+
+        if (contributorError) {
+          // If adding contributor fails, clean up the project
+          await supabaseClient
+            .from('user_projects')
+            .delete()
+            .eq('id', project.id)
+          
+          throw contributorError
         }
 
         return new Response(
