@@ -1,15 +1,22 @@
 import Hero from '../components/Hero'
-import { Code2, Users, Trophy, Rocket } from 'lucide-react'
+import { Code2, Users, Trophy, Rocket, ExternalLink } from 'lucide-react'
 import { Card, CardContent } from "../components/ui/card"
+import { Button } from "../components/ui/button"
 import JoinDiscord from '../components/JoinDiscord'
 
 function Home() {
+  const handleDiscordJoin = () => {
+    window.open('https://discord.gg/6GaWZAawUc', '_blank')
+  }
+
   return (
     <>
       <Hero />
+      
+      {/* Welcome Section */}
       <section className="mb-16 px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6">Welcome to the Koalition</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white">Welcome to the Koalition</h2>
           <p className="text-gray-400 text-lg">
             The Duo Keyboard Koalition is a community of passionate hackers, coders, and tech enthusiasts who come together to collaborate, learn, and take on hackathons with a competitive spirit.
           </p>
@@ -49,10 +56,50 @@ function Home() {
           </Card>
         </div>
 
+        {/* CTA to Web App */}
+        <div className="text-center mb-12">
+          <h3 className="text-2xl font-bold text-white mb-4">Ready to Join?</h3>
+          <p className="text-gray-400 mb-6">
+            Sign in to access the community dashboard, connect with other hackers, and start building.
+          </p>
+          <Button
+            asChild
+            className="bg-primary hover:bg-primary/90 text-black px-8 py-6 text-lg"
+            onClick={() => window.open('https://duo-keyboard-koalition.vercel.app', '_blank')}
+          >
+            <span>
+              <ExternalLink className="w-5 h-5 mr-2" />
+              Launch Web App
+            </span>
+          </Button>
+        </div>
+
         <JoinDiscord />
       </section>
 
-
+      {/* About Section */}
+      <section className="py-16 px-4 bg-black/50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center text-white">About the Duo Keyboard Koalition</h2>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4 text-gray-300">
+              <p>
+                The <strong className="text-primary">Duo Keyboard Koalition</strong> is a community of passionate hackers, coders, and tech enthusiasts who come together to collaborate, learn, and take on hackathons with a competitive spirit. Originally formed by a group of people who met at hackathons, the Koalition has evolved into a space where members push each other to innovate, build meaningful projects, and grow their skills.
+              </p>
+              <p>
+                The vibe is part competitive, part collaborative—like a team of modern-day "pirates" setting out on adventures in tech, always ready to tackle the next challenge. Whether you're looking to brainstorm new ideas, work on side projects, or prepare for upcoming hackathons, the Duo Keyboard Koalition is a supportive and driven community where you can connect with like-minded people and bring exciting ideas to life.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img
+                src="/images/logo_ngb.png"
+                alt="DKK Logo"
+                className="w-64 h-64 object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
