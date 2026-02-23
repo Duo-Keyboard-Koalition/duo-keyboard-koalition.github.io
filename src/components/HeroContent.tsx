@@ -26,12 +26,14 @@ function HeroContent(): JSX.Element {
           >
             Explore Projects
           </Link>
-          <Link
-            to="/events"
+          <a
+            href="https://duo-keyboard-koalition.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-4 text-lg font-semibold border-2 border-primary text-primary rounded-md shadow-md hover:bg-primary/20 transition-all duration-200"
           >
-            View Events
-          </Link>
+            Launch Web App
+          </a>
         </div>
       </div>
 

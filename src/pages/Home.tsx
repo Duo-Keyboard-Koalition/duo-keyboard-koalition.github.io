@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
       <Hero />
-      
+
       {/* Welcome Section */}
       <section className="mb-16 px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
