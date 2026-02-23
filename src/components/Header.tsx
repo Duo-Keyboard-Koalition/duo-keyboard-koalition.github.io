@@ -27,6 +27,7 @@ function Header(): JSX.Element {
           <div className="flex items-center gap-6 ml-auto">
             <Link to="/about" className="text-white hover:text-primary transition-colors">About</Link>
             <Link to="/projects" className="text-white hover:text-primary transition-colors">Projects</Link>
+            <Link to="/platforms" className="text-white hover:text-primary transition-colors">Platforms</Link>
             <Button
               variant="outline"
               size="sm"

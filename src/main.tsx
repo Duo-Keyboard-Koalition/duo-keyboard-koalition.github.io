@@ -10,6 +10,7 @@ import ProtectedLayout from './pages/protected/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import Platforms from './pages/Platforms'
 import Auth from './pages/Auth'
 import DiscordCallback from './pages/DiscordCallback'
 import Dashboard from './pages/protected/Dashboard'
@@ -72,6 +73,7 @@ function AppRoutes(): JSX.Element {
           <Route path="/" element={<PublicLayout><HomeRoute /></PublicLayout>} />
           <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
           <Route path="/projects" element={<PublicLayout><Projects /></PublicLayout>} />
+          <Route path="/platforms" element={<PublicLayout><Platforms /></PublicLayout>} />
           <Route path="/auth" element={<PublicLayout><Auth /></PublicLayout>} />
           <Route path="/auth/discord/callback" element={<PublicLayout><DiscordCallback /></PublicLayout>} />
 
