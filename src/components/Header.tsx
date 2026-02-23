@@ -1,17 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useAuth } from './AuthProvider';
-import LoginButton from './LoginButton';
-import UserProfile from './UserProfile';
 import { Button } from './ui/button';
 import { ExternalLink } from 'lucide-react';
 
 function Header(): JSX.Element {
-  const { isAuthenticated } = useAuth();
-
   return (
     <header className="bg-black border-b border-gray-800 sticky top-0 z-50 w-full">
       <nav className="w-full px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
           <Link to="/" className="flex items-center">
             <img
               src="/images/logo_ngb.png"
@@ -37,7 +32,6 @@ function Header(): JSX.Element {
               <ExternalLink className="w-4 h-4 mr-2" />
               Web App
             </Button>
-            {!isAuthenticated ? <LoginButton /> : <UserProfile />}
           </div>
         </div>
       </nav>

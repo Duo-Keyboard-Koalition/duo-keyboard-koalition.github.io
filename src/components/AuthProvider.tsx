@@ -1,5 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth, AuthUser } from '../lib/auth';
+
+// Simple auth user type (no Supabase dependencies)
+export interface AuthUser {
+  id: string;
+  email: string;
+  username?: string;
+  full_name?: string;
+  avatar_url?: string;
+}
 
 interface AuthContextType {
   user: AuthUser | null;
@@ -19,35 +27,49 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Subscribe to auth state changes
-    const unsubscribe = auth.onAuthStateChange((user) => {
-      setUser(user);
-      setIsLoading(false);
-    });
-
-    return unsubscribe;
+    // Check for stored user session
+    const storedUser = localStorage.getItem('dkk_user');
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (e) {
+        localStorage.removeItem('dkk_user');
+      }
+    }
+    setIsLoading(false);
   }, []);
 
   const login = async (email: string, password: string) => {
-    const result = await auth.login(email, password);
-    return { success: result.success, error: result.error };
+    // Placeholder - authentication handled by vercel.app
+    console.log('Login attempted - redirect to web app');
+    return { success: false, error: 'Please use the web app for authentication' };
   };
 
-  const register = async (email: string, password: string, metadata?: { username?: string; first_name?: string; last_name?: string }) => {
-    const result = await auth.register(email, password, metadata);
-    return { success: result.success, error: result.error };
+  const register = async (email: string, password: string, metadata?: any) => {
+    // Placeholder - registration handled by vercel.app
+    console.log('Register attempted - redirect to web app');
+    return { success: false, error: 'Please use the web app for registration' };
   };
 
   const logout = async () => {
-    await auth.logout();
+    localStorage.removeItem('dkk_user');
+    setUser(null);
   };
 
   const updateProfile = async (updates: Partial<AuthUser>) => {
-    return await auth.updateProfile(updates);
+    if (user) {
+      const updated = { ...user, ...updates };
+      setUser(updated);
+      localStorage.setItem('dkk_user', JSON.stringify(updated));
+      return { success: true };
+    }
+    return { success: false, error: 'Not authenticated' };
   };
 
   const loginWithDiscord = async () => {
-    return await auth.loginWithDiscord();
+    // Placeholder - OAuth handled by vercel.app
+    console.log('Discord login attempted - redirect to web app');
+    return { success: false, error: 'Please use the web app for Discord authentication' };
   };
 
   const value: AuthContextType = {

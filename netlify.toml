@@ -1,10 +1,6 @@
 [build]
-  publish = "dist"
   command = "npm run build"
-
-[functions]
-  node_bundler = "esbuild"
-  external_node_modules = ["@supabase/supabase-js"]
+  publish = "dist"
 
 [[redirects]]
   from = "/*"
