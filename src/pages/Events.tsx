@@ -159,8 +159,8 @@ function Events(): JSX.Element {
             Stay updated with our latest hackathons, workshops, and community events.
           </p>
         </div>
-        
-        <div className="flex gap-2 mt-4 lg:mt-0">
+
+        <div className="flex gap-2 mt-4 lg:mt-0 flex-wrap">
           <Button
             variant="outline"
             asChild
@@ -172,7 +172,21 @@ function Events(): JSX.Element {
               rel="noopener noreferrer"
             >
               <ExternalLink className="w-4 h-4 mr-2" />
-              DKK Events Platform
+              Geriver Events
+            </a>
+          </Button>
+          <Button
+            variant="outline"
+            asChild
+            className="border-gray-600 text-gray-300 hover:bg-gray-800"
+          >
+            <a
+              href="https://luma.com/calendar/manage/cal-FUq4o98pyWykY3q"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Luma Calendar
             </a>
           </Button>
         </div>
@@ -325,19 +339,34 @@ function Events(): JSX.Element {
             <p className="text-gray-400 mb-4">
               Visit our main events platform for the complete schedule and registration.
             </p>
-            <Button
-              asChild
-              className="bg-primary hover:bg-primary/90 text-black"
-            >
-              <a
-                href="https://app.getriver.io/beta/duo-keyboard-koalition"
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="flex gap-2 justify-center flex-wrap">
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-black"
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Visit DKK Events Platform
-              </a>
-            </Button>
+                <a
+                  href="https://app.getriver.io/beta/duo-keyboard-koalition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Geriver Events
+                </a>
+              </Button>
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-black"
+              >
+                <a
+                  href="https://luma.com/calendar/manage/cal-FUq4o98pyWykY3q"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Luma Calendar
+                </a>
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>

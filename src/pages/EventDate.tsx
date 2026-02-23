@@ -259,18 +259,34 @@ function EventDate(): JSX.Element {
             <p className="text-gray-400 mb-6">
               There are no events scheduled for {formatDate(date)}. Check out our other upcoming events!
             </p>
-            <Button
-              asChild
-              className="bg-primary hover:bg-primary/90 text-black"
-            >
-              <a
-                href="https://app.getriver.io/beta/duo-keyboard-koalition"
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="flex gap-2 justify-center flex-wrap">
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-black"
               >
-                View All Events
-              </a>
-            </Button>
+                <a
+                  href="https://app.getriver.io/beta/duo-keyboard-koalition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Geriver Events
+                </a>
+              </Button>
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-black"
+              >
+                <a
+                  href="https://luma.com/calendar/manage/cal-FUq4o98pyWykY3q"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Luma Calendar
+                </a>
+              </Button>
+            </div>
           </CardContent>
         </Card>
       )}
