@@ -6,7 +6,7 @@ const DISCORD_INVITE = 'BWyeYP29hp'
 const LINKS = {
   discord: `https://discord.gg/${DISCORD_INVITE}`,
   river: 'https://app.getriver.io/beta/duo-keyboard-koalition',
-  luma: 'https://luma.com/calendar/manage/cal-FUq4o98pyWykY3q',
+  luma: 'https://lu.ma/duo-keyboard-koalition',
 } as const
 
 function Connect(): JSX.Element {

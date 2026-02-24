@@ -70,6 +70,22 @@ function Home() {
         </div>
 
         <Connect />
+
+        {/* Luma calendar embed */}
+        <div className="mt-12 text-center">
+          <h3 className="text-2xl font-bold text-white mb-4">Upcoming events</h3>
+          <p className="text-gray-400 mb-6">RSVP on Luma for our next meetups and hackathons.</p>
+          <div className="flex justify-center">
+            <iframe
+              src="https://luma.com/embed/calendar/cal-FUq4o98pyWykY3q/events"
+              width="600"
+              height="450"
+              style={{ border: '1px solid #bfcbda88', borderRadius: '4px' }}
+              allowFullScreen
+              title="Luma calendar – Duo Keyboard Koalition events"
+            />
+          </div>
+        </div>
       </section>
 
       {/* About Section */}

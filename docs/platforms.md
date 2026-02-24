@@ -9,7 +9,7 @@ How the Duo Keyboard Koalition uses **Luma** and **GetRiver** to run events and 
 | Platform | Purpose | Link |
 |----------|---------|------|
 | **Discord** | Community chat | [Discord invite](https://discord.gg/BWyeYP29hp) — code: `BWyeYP29hp` |
-| **Luma** | Events, RSVPs, calendar | [Luma Calendar](https://luma.com/calendar/manage/cal-FUq4o98pyWykY3q) |
+| **Luma** | Events, RSVPs, calendar | [Luma Calendar](https://lu.ma/duo-keyboard-koalition) |
 | **River (GetRiver)** | Community hub, meetups, global map | [River Community](https://app.getriver.io/beta/duo-keyboard-koalition) |
 
 ---

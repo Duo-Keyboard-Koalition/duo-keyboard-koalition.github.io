@@ -77,7 +77,7 @@ function App() {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/company/pygmalion-koalition"
+              href="https://www.linkedin.com/company/duo-keyboard-koalition"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-[#0077B5] text-sm"
