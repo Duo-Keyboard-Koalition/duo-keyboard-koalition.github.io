@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 // Render Hero content
 function HeroContent(): JSX.Element {
   return (
@@ -20,12 +18,12 @@ function HeroContent(): JSX.Element {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link
-            to="/qr"
+          <a
+            href="/#qr"
             className="px-8 py-4 text-lg font-semibold bg-primary text-black rounded-md shadow-md hover:bg-primary/80 transition-all duration-200"
           >
             Scan QR
-          </Link>
+          </a>
           <a
             href="https://duo-keyboard-koalition.vercel.app"
             target="_blank"

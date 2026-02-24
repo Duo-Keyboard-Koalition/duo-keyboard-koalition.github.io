@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Hero from '../components/Hero'
 import { Code2, Users, Trophy, Rocket, ExternalLink } from 'lucide-react'
 import { Card, CardContent } from "../components/ui/card"
@@ -5,12 +6,20 @@ import { Button } from "../components/ui/button"
 import Connect from '../components/Connect'
 
 function Home() {
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const el = document.querySelector(hash)
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [])
+
   return (
     <>
       <Hero />
 
       {/* Welcome Section */}
-      <section className="mb-16 px-4">
+      <section id="welcome" className="mb-16 px-4 scroll-mt-20">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold mb-6 text-white">Welcome to the Koalition</h2>
           <p className="text-gray-400 text-lg">
@@ -69,10 +78,12 @@ function Home() {
           </Button>
         </div>
 
-        <Connect />
+        <section id="connect" className="scroll-mt-20">
+          <Connect />
+        </section>
 
         {/* Luma calendar embed */}
-        <div className="mt-12 text-center">
+        <div id="events" className="mt-12 text-center scroll-mt-20">
           <h3 className="text-2xl font-bold text-white mb-4">Upcoming events</h3>
           <p className="text-gray-400 mb-6">RSVP on Luma for our next meetups and hackathons.</p>
           <div className="flex justify-center">
@@ -89,7 +100,7 @@ function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 px-4 bg-black/50">
+      <section id="about" className="py-16 px-4 bg-black/50 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center text-white">About the Duo Keyboard Koalition</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -109,6 +120,26 @@ function Home() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* QR Section */}
+      <section id="qr" className="py-16 px-4 scroll-mt-20">
+        <div className="max-w-md mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-2">Scan to visit</h2>
+          <p className="text-gray-400 mb-8">
+            Point your camera at the QR code to open the landing page.
+          </p>
+          <div className="bg-white p-4 rounded-lg inline-block">
+            <img
+              src={`https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=${encodeURIComponent('https://duo-keyboard-koalition.github.io/')}`}
+              alt="QR code for duo-keyboard-koalition.github.io"
+              width={256}
+              height={256}
+              className="w-64 h-64"
+            />
+          </div>
+          <p className="mt-6 text-gray-500 text-sm break-all">https://duo-keyboard-koalition.github.io/</p>
         </div>
       </section>
     </>

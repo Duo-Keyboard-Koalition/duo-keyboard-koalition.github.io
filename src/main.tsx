@@ -1,9 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
-import About from './pages/About'
-import QR from './pages/QR'
 import './index.css'
 
 function App() {
@@ -29,8 +27,11 @@ function App() {
             </a>
 
             <div className="flex items-center gap-6 ml-auto">
-              <a href="/about" className="text-white hover:text-primary transition-colors">About</a>
-              <a href="/qr" className="text-white hover:text-primary transition-colors">QR</a>
+              <a href="/#welcome" className="text-white hover:text-primary transition-colors">Welcome</a>
+              <a href="/#connect" className="text-white hover:text-primary transition-colors">Connect</a>
+              <a href="/#events" className="text-white hover:text-primary transition-colors">Events</a>
+              <a href="/#about" className="text-white hover:text-primary transition-colors">About</a>
+              <a href="/#qr" className="text-white hover:text-primary transition-colors">QR</a>
               <a
                 href="https://duo-keyboard-koalition.vercel.app"
                 target="_blank"
@@ -94,8 +95,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
-        <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
-        <Route path="/qr" element={<PublicLayout><QR /></PublicLayout>} />
+        <Route path="/about" element={<Navigate to="/#about" replace />} />
+        <Route path="/qr" element={<Navigate to="/#qr" replace />} />
       </Routes>
     </Router>
   )
