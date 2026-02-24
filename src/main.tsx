@@ -4,13 +4,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import QR from './pages/QR'
-import Platforms from './pages/Platforms'
 import './index.css'
 
 function App() {
-  const handleDiscordJoin = () => {
-    window.open('https://discord.gg/6GaWZAawUc', '_blank')
-  }
+  const DISCORD_INVITE_LINK = 'https://discord.gg/BWyeYP29hp'
+  const handleDiscordJoin = () => window.open(DISCORD_INVITE_LINK, '_blank')
 
   // Public layout (with header and footer)
   const PublicLayout = ({ children }: { children: React.ReactNode }) => (
@@ -33,7 +31,6 @@ function App() {
             <div className="flex items-center gap-6 ml-auto">
               <a href="/about" className="text-white hover:text-primary transition-colors">About</a>
               <a href="/qr" className="text-white hover:text-primary transition-colors">QR</a>
-              <a href="/platforms" className="text-white hover:text-primary transition-colors">Platforms</a>
               <a
                 href="https://duo-keyboard-koalition.vercel.app"
                 target="_blank"
@@ -63,7 +60,7 @@ function App() {
           </div>
           <div className="flex items-center gap-6">
             <a
-              href="https://discord.gg/6GaWZAawUc"
+              href={DISCORD_INVITE_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-[#5865F2] text-sm"
@@ -99,7 +96,6 @@ function App() {
         <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
         <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
         <Route path="/qr" element={<PublicLayout><QR /></PublicLayout>} />
-        <Route path="/platforms" element={<PublicLayout><Platforms /></PublicLayout>} />
       </Routes>
     </Router>
   )

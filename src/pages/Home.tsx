@@ -2,13 +2,9 @@ import Hero from '../components/Hero'
 import { Code2, Users, Trophy, Rocket, ExternalLink } from 'lucide-react'
 import { Card, CardContent } from "../components/ui/card"
 import { Button } from "../components/ui/button"
-import JoinDiscord from '../components/JoinDiscord'
+import Connect from '../components/Connect'
 
 function Home() {
-  const handleDiscordJoin = () => {
-    window.open('https://discord.gg/6GaWZAawUc', '_blank')
-  }
-
   return (
     <>
       <Hero />
@@ -73,7 +69,7 @@ function Home() {
           </Button>
         </div>
 
-        <JoinDiscord />
+        <Connect />
       </section>
 
       {/* About Section */}

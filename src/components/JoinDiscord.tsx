@@ -3,7 +3,7 @@ import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
 
 function JoinDiscord(): JSX.Element {
-  const discordInviteLink = "https://discord.com/invite/6GaWZAawUc"
+  const discordInviteLink = "https://discord.gg/BWyeYP29hp"
 
   const handleLearnMore = () => {
     alert("To learn more, please join our Discord community!")
