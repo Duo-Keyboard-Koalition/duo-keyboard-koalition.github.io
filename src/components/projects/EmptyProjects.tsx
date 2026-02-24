@@ -18,9 +18,9 @@ function EmptyProjects(): JSX.Element {
               asChild
               className="bg-primary hover:bg-primary/90 text-black"
             >
-              <a href="/auth">
+              <a href="#" aria-disabled="true" className="pointer-events-none opacity-90" title="Coming soon">
                 <Plus className="w-4 h-4 mr-2" />
-                Join & Add Project
+                Proceed to the app
               </a>
             </Button>
           </CardContent>

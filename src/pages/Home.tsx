@@ -60,17 +60,16 @@ function Home() {
         <div className="text-center mb-12">
           <h3 className="text-2xl font-bold text-white mb-4">Ready to Join?</h3>
           <p className="text-gray-400 mb-6">
-            Sign in to access the community dashboard, connect with other hackers, and start building.
+            Proceed to the app to access the community dashboard, connect with other hackers, and start building.
           </p>
           <Button
             asChild
             className="bg-primary hover:bg-primary/90 text-black px-8 py-6 text-lg"
-            onClick={() => window.open('https://duo-keyboard-koalition.vercel.app', '_blank')}
           >
-            <span>
+            <a href="#" aria-disabled="true" className="pointer-events-none opacity-90" title="Coming soon">
               <ExternalLink className="w-5 h-5 mr-2" />
-              Launch Web App
-            </span>
+              Proceed to the app
+            </a>
           </Button>
         </div>
 

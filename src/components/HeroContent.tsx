@@ -21,10 +21,10 @@ function HeroContent(): JSX.Element {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
-            to="/projects"
+            to="/qr"
             className="px-8 py-4 text-lg font-semibold bg-primary text-black rounded-md shadow-md hover:bg-primary/80 transition-all duration-200"
           >
-            Explore Projects
+            Scan QR
           </Link>
           <a
             href="https://duo-keyboard-koalition.vercel.app"

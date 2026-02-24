@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { apiClient } from '../lib/api';
 
 interface Project {
   id: string;
@@ -29,17 +28,10 @@ export function useProjects(): UseProjectsReturn {
   const [error, setError] = useState<string | null>(null);
 
   const loadProjects = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-      const response = await apiClient.getPublicProjects();
-      setProjects(response.projects || []);
-    } catch (err: any) {
-      console.error('Error loading projects:', err);
-      setError(err.message || 'Failed to load projects');
-    } finally {
-      setIsLoading(false);
-    }
+    setIsLoading(true);
+    setError(null);
+    setProjects([]);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -50,6 +42,6 @@ export function useProjects(): UseProjectsReturn {
     projects,
     isLoading,
     error,
-    refetch: loadProjects
+    refetch: loadProjects,
   };
 }

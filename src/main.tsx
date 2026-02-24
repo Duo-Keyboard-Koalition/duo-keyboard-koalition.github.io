@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
-import Projects from './pages/Projects'
+import QR from './pages/QR'
 import Platforms from './pages/Platforms'
 import './index.css'
 
@@ -32,7 +32,7 @@ function App() {
 
             <div className="flex items-center gap-6 ml-auto">
               <a href="/about" className="text-white hover:text-primary transition-colors">About</a>
-              <a href="/projects" className="text-white hover:text-primary transition-colors">Projects</a>
+              <a href="/qr" className="text-white hover:text-primary transition-colors">QR</a>
               <a href="/platforms" className="text-white hover:text-primary transition-colors">Platforms</a>
               <a
                 href="https://duo-keyboard-koalition.vercel.app"
@@ -98,7 +98,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
         <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
-        <Route path="/projects" element={<PublicLayout><Projects /></PublicLayout>} />
+        <Route path="/qr" element={<PublicLayout><QR /></PublicLayout>} />
         <Route path="/platforms" element={<PublicLayout><Platforms /></PublicLayout>} />
       </Routes>
     </Router>
